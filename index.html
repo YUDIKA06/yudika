@@ -90,7 +90,7 @@
         <button onclick="navigateTo('beranda')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="beranda">Beranda</button>
         <button onclick="navigateTo('tentang')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="tentang">Tentang Kami</button>
         <button onclick="navigateTo('keunggulan')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="keunggulan">Keunggulan</button>
-        <button onclick="navigateTo('menu')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="menu">Varian Menu</button>
+        <button onclick="navigateTo('produk')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="produk">Produk Kami</button>
         <button onclick="navigateTo('tim')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="tim">Struktur Tim</button>
         <button onclick="navigateTo('kemitraan')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="kemitraan">Kemitraan</button>
       </nav>
@@ -120,8 +120,8 @@
       <button onclick="navigateTo('keunggulan'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="keunggulan">
         <i class="fa-solid fa-star w-5 text-slate-400"></i> Keunggulan
       </button>
-      <button onclick="navigateTo('menu'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="menu">
-        <i class="fa-solid fa-utensils w-5 text-slate-400"></i> Varian Menu
+      <button onclick="navigateTo('produk'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="produk">
+        <i class="fa-solid fa-box-open w-5 text-slate-400"></i> Produk Kami
       </button>
       <button onclick="navigateTo('tim'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="tim">
         <i class="fa-solid fa-users w-5 text-slate-400"></i> Struktur Tim
@@ -163,7 +163,7 @@
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-amber-300 to-brand-500">
                   Anti Bocor, Gurih Mantap,
                 </span> <br>
-                Cuma Rp5.000!
+                Pelopor Kuliner Modern
               </h1>
 
               <p class="text-slate-300 text-lg sm:text-xl font-normal max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
@@ -171,9 +171,9 @@
               </p>
 
               <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
-                <button onclick="navigateTo('menu')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-amber-500 text-white font-heading font-bold text-base shadow-xl shadow-brand-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all text-center flex items-center justify-center gap-2">
-                  <i class="fa-solid fa-utensils"></i>
-                  <span>Jelajahi Menu Kami</span>
+                <button onclick="navigateTo('produk')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-amber-500 text-white font-heading font-bold text-base shadow-xl shadow-brand-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all text-center flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-box-open"></i>
+                  <span>Jelajahi Produk Kami</span>
                 </button>
                 <button onclick="navigateTo('kemitraan')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-800/90 hover:bg-slate-800 text-white font-heading font-semibold text-base border border-slate-700 hover:border-slate-600 transition-all text-center flex items-center justify-center gap-2">
                   <i class="fa-solid fa-calculator"></i>
@@ -192,8 +192,8 @@
                   <p class="text-xs sm:text-sm font-medium text-slate-400 mt-1">Penyajian Kilat</p>
                 </div>
                 <div>
-                  <p class="font-heading font-black text-2xl sm:text-3xl text-amber-400">Rp5.000</p>
-                  <p class="text-xs sm:text-sm font-medium text-slate-400 mt-1">Harga Terjangkau</p>
+                  <p class="font-heading font-black text-2xl sm:text-3xl text-amber-400">Praktis</p>
+                  <p class="text-xs sm:text-sm font-medium text-slate-400 mt-1">Satu Genggaman</p>
                 </div>
               </div>
             </div>
@@ -216,18 +216,14 @@
                       <div class="w-24 h-28 flex items-center justify-center">
                         <i class="fa-solid fa-pizza-slice text-7xl text-brand-500 transform rotate-180 drop-shadow-[0_10px_15px_rgba(234,88,12,0.4)] group-hover:scale-110 transition-transform"></i>
                       </div>
-                      <h4 class="font-heading font-extrabold text-xl mt-3 text-white">ConeBab Original Beef</h4>
+                      <h4 class="font-heading font-extrabold text-xl mt-3 text-white">ConeBab Original</h4>
                       <p class="text-xs text-slate-400 mt-1">Tortilla Garing • Daging Tumis Rempah • Mayo Creamy</p>
                     </div>
                   </div>
 
-                  <div class="mt-6 flex items-center justify-between pt-4 border-t border-slate-800">
-                    <div>
-                      <span class="text-xs text-slate-400 block font-medium">Harga Konsumen</span>
-                      <span class="font-heading font-black text-3xl text-brand-400">Rp5.000</span>
-                    </div>
-                    <button onclick="navigateTo('menu')" class="px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm transition-all flex items-center gap-2">
-                      <span>Lihat Semua Menu</span>
+                  <div class="mt-6 pt-4 border-t border-slate-800">
+                    <button onclick="navigateTo('produk')" class="w-full px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm transition-all flex items-center justify-center gap-2">
+                      <span>Lihat Produk Detail</span>
                       <i class="fa-solid fa-arrow-right"></i>
                     </button>
                   </div>
@@ -263,11 +259,11 @@
             </div>
             <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
               <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shrink-0">
-                <i class="fa-solid fa-coins"></i>
+                <i class="fa-solid fa-briefcase"></i>
               </div>
               <div>
-                <h4 class="font-heading font-bold text-base text-slate-900 mb-1">Harga Sangat Terjangkau</h4>
-                <p class="text-xs text-slate-600 leading-relaxed">Menjangkau pangsa pasar pelajar, mahasiswa, dan komuter dengan daya beli spontan.</p>
+                <h4 class="font-heading font-bold text-base text-slate-900 mb-1">Potensi Bisnis Kuat</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Model bisnis efisien yang cocok untuk kemitraan dengan operasional yang mudah diduplikasi.</p>
               </div>
             </div>
           </div>
@@ -302,7 +298,7 @@
                   Mendemokratisasi Camilan Daging Berkualitas di Indonesia
                 </h3>
                 <p class="text-white/90 text-sm leading-relaxed mb-6">
-                  Kami berdedikasi menciptakan jajanan modern bernilai tinggi dengan standar kebersihan terjaga, rasa yang konsisten, dan harga yang terjangkau bagi semua kalangan, mulai dari pelajar hingga masyarakat perkotaan yang dinamis.
+                  Kami berdedikasi menciptakan jajanan modern bernilai tinggi dengan standar kebersihan terjaga, rasa yang konsisten, dan harga yang dapat dijangkau berbagai kalangan, mulai dari pelajar hingga masyarakat perkotaan yang dinamis.
                 </p>
                 <div class="p-4 rounded-2xl bg-black/20 backdrop-blur-sm border border-white/10 flex items-center gap-4">
                   <i class="fa-solid fa-shield-halved text-3xl text-amber-300"></i>
@@ -325,10 +321,10 @@
               
               <div class="space-y-4 text-slate-600 text-base leading-relaxed">
                 <p>
-                  <strong>ConeBab</strong> adalah usaha kuliner modern yang bergerak di kategori <em>quick-service street food</em>, berfokus pada inovasi camilan daging gurih siap saji dalam format <em>savory cone</em>. Didirikan dengan semangat menyajikan makanan berkualitas tinggi yang mudah diakses, kami mengombinasikan racikan rempah khas, bahan baku pilihan, dan sistem operasional cepat saji untuk menghadirkan pengalaman jajan yang praktis, higienis, serta ramah di kantong setiap hari.
+                  <strong>ConeBab</strong> adalah usaha kuliner modern yang bergerak di kategori <em>quick-service street food</em>, berfokus pada inovasi camilan daging gurih siap saji dalam format <em>savory cone</em>. Didirikan dengan semangat menyajikan makanan berkualitas tinggi yang mudah diakses, kami mengombinasikan racikan rempah khas, bahan baku pilihan, dan sistem operasional cepat saji untuk menghadirkan pengalaman jajan yang praktis dan higienis setiap hari.
                 </p>
                 <p>
-                  Melalui sistem dapur terintegrasi dan standarisasi resep yang presisi, kami berkomitmen untuk terus menghadirkan pilihan camilan harian yang lezat, terjangkau, serta relevan dengan gaya hidup masyarakat yang serba cepat.
+                  Melalui sistem dapur terintegrasi dan standarisasi resep yang presisi, kami berkomitmen untuk terus menghadirkan pilihan camilan harian yang lezat serta relevan dengan gaya hidup masyarakat yang serba cepat, membuka peluang bisnis yang solid bagi mitra kami di seluruh Indonesia.
                 </p>
               </div>
 
@@ -339,11 +335,11 @@
                 </div>
                 <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                   <p class="font-heading font-black text-2xl text-brand-600">3x Lipat</p>
-                  <p class="text-xs text-slate-500 font-medium">Efisiensi Bahan</p>
+                  <p class="text-xs text-slate-500 font-medium">Efisiensi Operasional</p>
                 </div>
                 <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <p class="font-heading font-black text-2xl text-amber-600">Rp5.000</p>
-                  <p class="text-xs text-slate-500 font-medium">Harga Bersahabat</p>
+                  <p class="font-heading font-black text-2xl text-amber-600">Terpusat</p>
+                  <p class="text-xs text-slate-500 font-medium">Sistem Produksi</p>
                 </div>
               </div>
             </div>
@@ -396,7 +392,7 @@
                 </div>
                 <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Penyajian Kilat (&lt;15 Detik)</h3>
                 <p class="text-slate-600 text-sm leading-relaxed">
-                  Cone sudah dipanggang kaku dari dapur persiapan. Kru booth cukup mengambil cone, mengisi selada, menyendok daging hangat dari pemanas, dan memberi saus. Antrean mengalir lancar!
+                  Cone sudah dipanggang kaku dari dapur persiapan. Kru booth cukup mengambil cone, mengisi sayur, menyendok daging hangat dari pemanas, dan memberi saus. Antrean mengalir lancar!
                 </p>
               </div>
               <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-600 flex items-center gap-1.5">
@@ -408,16 +404,16 @@
             <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
               <div>
                 <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-6">
-                  <i class="fa-solid fa-wallet"></i>
+                  <i class="fa-solid fa-bullseye"></i>
                 </div>
-                <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Harga Pas di Kantong Pelajar</h3>
+                <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Segmentasi Pasar Luas</h3>
                 <p class="text-slate-600 text-sm leading-relaxed">
-                  Cukup selembar uang Rp5.000, siapa pun bisa menikmati camilan daging gurih yang lezat. Sangat cocok untuk mengganjal lapar sore tanpa harus membayar porsi berat Rp15.000+.
+                  Dengan strategi porsi dan harga yang disesuaikan untuk menjadi <em>snack</em> ringan yang mengenyangkan, ConeBab menyasar pangsa pasar luas dengan frekuensi pembelian (impulse buying) yang tinggi.
                 </p>
               </div>
               <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-600 flex items-center gap-1.5">
                 <i class="fa-solid fa-circle-check"></i>
-                <span>Impulse Buying Tinggi</span>
+                <span>Produk Massal Potensial</span>
               </div>
             </div>
 
@@ -425,36 +421,36 @@
 
           <!-- Comparison Table -->
           <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-            <h3 class="font-heading font-extrabold text-2xl text-slate-900 mb-6">Matriks Perbandingan Produk</h3>
+            <h3 class="font-heading font-extrabold text-2xl text-slate-900 mb-6">Matriks Perbandingan Operasional Produk</h3>
             <div class="overflow-x-auto">
               <table class="w-full text-left text-sm">
                 <thead>
                   <tr class="border-b border-slate-200 text-slate-400 font-bold uppercase text-xs">
-                    <th class="py-3 px-4">Parameter</th>
+                    <th class="py-3 px-4">Parameter Operasional</th>
                     <th class="py-3 px-4">Kebab Konvensional</th>
                     <th class="py-3 px-4 text-brand-600">ConeBab (Kebab Cone)</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-slate-600">
                   <tr>
-                    <td class="py-4 px-4 font-bold text-slate-900">Titik Harga</td>
-                    <td class="py-4 px-4">Rp12.000 – Rp20.000 (perlu pertimbangan)</td>
-                    <td class="py-4 px-4 font-bold text-brand-600">Rp5.000 (Spontan / Uang Pas)</td>
+                    <td class="py-4 px-4 font-bold text-slate-900">Cara Konsumsi</td>
+                    <td class="py-4 px-4">Membutuhkan dua tangan, kupas kertas bertahap, rawan tumpah</td>
+                    <td class="py-4 px-4 font-bold text-brand-600">Satu tangan layaknya es krim (Zero Leak Experience)</td>
                   </tr>
                   <tr>
-                    <td class="py-4 px-4 font-bold text-slate-900">Cara Santap</td>
-                    <td class="py-4 px-4">Dua tangan, kupas kertas bertahap, rawan sobek</td>
-                    <td class="py-4 px-4 font-bold text-brand-600">Satu tangan layaknya es krim (Zero Leak)</td>
+                    <td class="py-4 px-4 font-bold text-slate-900">Waktu Penyiapan (Per Porsi)</td>
+                    <td class="py-4 px-4">2 hingga 3 menit (memanggang & menggulung)</td>
+                    <td class="py-4 px-4 font-bold text-brand-600">&lt; 15 detik (Direct Assembly pada pre-baked cone)</td>
                   </tr>
                   <tr>
-                    <td class="py-4 px-4 font-bold text-slate-900">Waktu Tunggu</td>
-                    <td class="py-4 px-4">2 hingga 3 menit per porsi</td>
-                    <td class="py-4 px-4 font-bold text-brand-600">&lt; 15 detik (Direct Assembly)</td>
+                    <td class="py-4 px-4 font-bold text-slate-900">Kompleksitas Dapur Booth</td>
+                    <td class="py-4 px-4">Tinggi (Perlu pemanggang daging vertikal & pemanggang kulit)</td>
+                    <td class="py-4 px-4 font-bold text-brand-600">Rendah (Peralatan pemanas sederhana, hemat ruang)</td>
                   </tr>
                   <tr>
-                    <td class="py-4 px-4 font-bold text-slate-900">Target Konsumsi</td>
-                    <td class="py-4 px-4">Makanan berat utama</td>
-                    <td class="py-4 px-4 font-bold text-brand-600">Snack santai pengganjal lapar</td>
+                    <td class="py-4 px-4 font-bold text-slate-900">Standarisasi Bentuk</td>
+                    <td class="py-4 px-4">Bergantung keterampilan karyawan (sering tidak konsisten)</td>
+                    <td class="py-4 px-4 font-bold text-brand-600">Sangat konsisten (struktur cone mengunci bentuk porsi)</td>
                   </tr>
                 </tbody>
               </table>
@@ -465,117 +461,137 @@
       </div>
     </section>
 
-    <section id="page-menu" class="page-section">
+    <!-- Halaman Produk Kami -->
+    <section id="page-produk" class="page-section">
       <div class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-slate-100 pb-8">
             <div>
               <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
-                Katalog Menu
+                Katalog Produk Utama
               </span>
               <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
-                Varian Menu ConeBab
+                Produk Unggulan Kami
               </h2>
-              <p class="text-slate-600 text-base mt-2">Dibuat dari bahan pilihan berkualitas dengan resep bumbu gurih khas nusantara.</p>
+              <p class="text-slate-600 text-base mt-2 max-w-2xl">Memperkenalkan inovasi utama ConeBab, dirancang dengan presisi untuk menyajikan rasa otentik dengan cara yang paling modern dan praktis bagi konsumen aktif.</p>
             </div>
             <div class="mt-4 md:mt-0 flex gap-2">
-              <span class="text-xs bg-slate-100 px-3.5 py-2 rounded-xl text-slate-600 font-semibold flex items-center gap-1.5">
+              <span class="text-xs bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-xl text-slate-600 font-semibold flex items-center gap-2">
                 <i class="fa-solid fa-certificate text-brand-600"></i>
-                100% Halal & Gurih Mantap
+                100% Bersertifikat Halal
               </span>
             </div>
           </div>
 
-          <!-- Menu Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Professional Product Showcase -->
+          <div class="bg-slate-50/50 rounded-[2.5rem] p-6 sm:p-10 border border-slate-200 shadow-sm overflow-hidden relative">
             
-            <!-- Menu 1 -->
-            <div class="rounded-3xl border border-slate-200 overflow-hidden bg-slate-50/50 hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between group">
-              <div class="p-6">
-                <div class="w-full h-44 rounded-2xl bg-gradient-to-tr from-amber-100 to-brand-50 flex items-center justify-center text-brand-600 mb-5 relative group-hover:scale-105 transition-transform">
-                  <i class="fa-solid fa-pizza-slice text-6xl transform rotate-180 drop-shadow-md"></i>
-                  <span class="absolute top-3 right-3 bg-brand-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Best Seller</span>
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-brand-100 rounded-full blur-3xl opacity-50"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-amber-100 rounded-full blur-3xl opacity-50"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+              
+              <!-- Product Image/Graphic Column -->
+              <div class="relative flex justify-center items-center">
+                <!-- Outer glow/frame -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-brand-200 to-amber-100 rounded-[2rem] transform rotate-3 scale-105 opacity-70"></div>
+                
+                <!-- Image Container -->
+                <div class="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-white rounded-[2rem] shadow-xl border border-white p-8 flex flex-col items-center justify-center overflow-hidden group">
+                  
+                  <!-- Abstract background pattern inside image area -->
+                  <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
+                  
+                  <!-- Conceptual Product Illustration using FontAwesome (Placeholder for actual high-res image) -->
+                  <div class="relative z-10 flex flex-col items-center justify-center">
+                    <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-gradient-to-b from-brand-50 to-orange-100/50 flex items-center justify-center mb-6 shadow-inner relative group-hover:scale-105 transition-transform duration-500">
+                      
+                      <!-- Central Icon representing the Cone Kebab -->
+                      <i class="fa-solid fa-pizza-slice text-8xl sm:text-9xl text-brand-500 transform rotate-180 drop-shadow-[0_15px_15px_rgba(234,88,12,0.25)]"></i>
+                      
+                      <!-- Decorative sparkles -->
+                      <i class="fa-solid fa-sparkles absolute top-8 right-8 text-amber-400 text-xl animate-pulse"></i>
+                      <i class="fa-solid fa-sparkles absolute bottom-12 left-10 text-brand-400 text-sm"></i>
+                    </div>
+                    
+                    <div class="text-center mt-2 opacity-60">
+                      <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Visualisasi Produk</span>
+                    </div>
+                  </div>
+
+                  <!-- Overlay badge -->
+                  <div class="absolute top-6 left-6 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1.5">
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
+                    Signature Product
+                  </div>
                 </div>
-                <h4 class="font-heading font-bold text-xl text-slate-900 mb-1">ConeBab Original</h4>
-                <p class="text-slate-500 text-xs mb-3">Tortilla krispi, tumis daging sapi rempah, selada renyah, saus tomat manis dan mayones creamy gurih.</p>
               </div>
-              <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
-                <div>
-                  <span class="text-xs text-slate-400 block">Harga</span>
-                  <span class="font-heading font-black text-2xl text-brand-600">Rp5.000</span>
+
+              <!-- Product Details Column -->
+              <div class="flex flex-col justify-center">
+                <div class="inline-flex items-center gap-2 mb-4">
+                  <span class="px-2.5 py-1 rounded-md bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-widest">
+                    Best Seller
+                  </span>
+                  <span class="text-xs font-semibold text-slate-400">Camilan Gurih Siap Saji</span>
                 </div>
-                <button onclick="showQuickToast('ConeBab Original ditambahkan ke pesanan!')" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors shadow">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
+                
+                <h3 class="font-heading font-black text-4xl sm:text-5xl text-slate-900 mb-6 tracking-tight leading-tight">
+                  CONEBAB
+                </h3>
+                
+                <div class="space-y-5 text-slate-600 text-base leading-relaxed mb-8">
+                  <p>
+                    <strong>CONEBAB</strong> adalah interpretasi modern dari kebab konvensional. Kami mendesain ulang pengalaman menikmati kebab menjadi jauh lebih praktis, bersih, dan efisien tanpa mengorbankan kualitas rasa.
+                  </p>
+                  <p>
+                    Dibungkus dalam kulit tortilla renyah yang dipanggang sempurna hingga membentuk kerucut kokoh, produk ini diisi dengan komposisi seimbang antara daging sapi olahan berbumbu rempah khas, selada segar yang renyah, serta paduan saus spesial yang kaya rasa.
+                  </p>
+                </div>
+
+                <!-- Feature List -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm mb-8">
+                  <h4 class="font-bold text-sm text-slate-900 mb-4 uppercase tracking-wider">Komposisi Utama & Karakteristik</h4>
+                  <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                      <div class="mt-0.5 w-5 h-5 rounded-full bg-brand-100 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-check text-[10px] text-brand-600"></i>
+                      </div>
+                      <p class="text-sm text-slate-700"><strong class="text-slate-900">Cone Tortilla Garing:</strong> Dipanggang khusus untuk mempertahankan tekstur renyah dan mencegah rembesan cairan.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <div class="mt-0.5 w-5 h-5 rounded-full bg-brand-100 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-check text-[10px] text-brand-600"></i>
+                      </div>
+                      <p class="text-sm text-slate-700"><strong class="text-slate-900">Isian Daging Berbumbu:</strong> Daging sapi berkualitas dengan marinasi rempah nusantara yang hangat dan gurih.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <div class="mt-0.5 w-5 h-5 rounded-full bg-brand-100 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-check text-[10px] text-brand-600"></i>
+                      </div>
+                      <p class="text-sm text-slate-700"><strong class="text-slate-900">Saus Signature:</strong> Kombinasi mayones creamy dan saus rahasia pelengkap untuk menyatukan seluruh elemen rasa.</p>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Business Contact CTA -->
+                <div class="flex items-center gap-4">
+                  <button onclick="navigateTo('kemitraan')" class="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-md">
+                    <span>Informasi Kemitraan</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                  <a href="#" onclick="showQuickToast('Menghubungi tim representatif bisnis kami...')" class="px-6 py-3.5 rounded-xl bg-white border border-slate-300 hover:border-slate-400 text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Tanya Produk</span>
+                  </a>
+                </div>
+
               </div>
             </div>
-
-            <!-- Menu 2 -->
-            <div class="rounded-3xl border border-slate-200 overflow-hidden bg-slate-50/50 hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between group">
-              <div class="p-6">
-                <div class="w-full h-44 rounded-2xl bg-gradient-to-tr from-red-100 to-orange-100 flex items-center justify-center text-red-600 mb-5 relative group-hover:scale-105 transition-transform">
-                  <i class="fa-solid fa-pepper-hot text-6xl drop-shadow-md"></i>
-                  <span class="absolute top-3 right-3 bg-red-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Pedas</span>
-                </div>
-                <h4 class="font-heading font-bold text-xl text-slate-900 mb-1">ConeBab Spicy Mayo</h4>
-                <p class="text-slate-500 text-xs mb-3">Daging cincang lada hitam berpadu sambal cabai rawit khas dan saus pedas gurih untuk pecinta rasa menantang.</p>
-              </div>
-              <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
-                <div>
-                  <span class="text-xs text-slate-400 block">Harga</span>
-                  <span class="font-heading font-black text-2xl text-brand-600">Rp5.000</span>
-                </div>
-                <button onclick="showQuickToast('ConeBab Spicy Mayo ditambahkan ke pesanan!')" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors shadow">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-            </div>
-
-            <!-- Menu 3 -->
-            <div class="rounded-3xl border border-slate-200 overflow-hidden bg-slate-50/50 hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between group">
-              <div class="p-6">
-                <div class="w-full h-44 rounded-2xl bg-gradient-to-tr from-yellow-100 to-amber-100 flex items-center justify-center text-amber-500 mb-5 relative group-hover:scale-105 transition-transform">
-                  <i class="fa-solid fa-cheese text-6xl drop-shadow-md"></i>
-                  <span class="absolute top-3 right-3 bg-amber-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Favorit</span>
-                </div>
-                <h4 class="font-heading font-bold text-xl text-slate-900 mb-1">ConeBab Cheesy Melt</h4>
-                <p class="text-slate-500 text-xs mb-3">Cone klasik dengan ekstra lelehan saus keju cheddar lembut gurih di atas daging cincang hangat.</p>
-              </div>
-              <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
-                <div>
-                  <span class="text-xs text-slate-400 block">Harga</span>
-                  <span class="font-heading font-black text-2xl text-brand-600">Rp7.000</span>
-                </div>
-                <button onclick="showQuickToast('ConeBab Cheesy Melt ditambahkan ke pesanan!')" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors shadow">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-            </div>
-
-            <!-- Menu 4 -->
-            <div class="rounded-3xl border border-slate-200 overflow-hidden bg-slate-50/50 hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between group">
-              <div class="p-6">
-                <div class="w-full h-44 rounded-2xl bg-gradient-to-tr from-emerald-100 to-teal-100 flex items-center justify-center text-emerald-600 mb-5 relative group-hover:scale-105 transition-transform">
-                  <i class="fa-solid fa-cubes-stacked text-6xl drop-shadow-md"></i>
-                  <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Hemat</span>
-                </div>
-                <h4 class="font-heading font-bold text-xl text-slate-900 mb-1">Paket Triple Trio</h4>
-                <p class="text-slate-500 text-xs mb-3">3 pcs ConeBab (1 Original, 1 Spicy, 1 Cheese) dalam satu paket hemat buat santai nongkrong rame-rame.</p>
-              </div>
-              <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
-                <div>
-                  <span class="text-xs text-slate-400 block">Harga Paket</span>
-                  <span class="font-heading font-black text-2xl text-brand-600">Rp15.000</span>
-                </div>
-                <button onclick="showQuickToast('Paket Triple Trio ditambahkan ke pesanan!')" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors shadow">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-            </div>
-
           </div>
-
+          
         </div>
       </div>
     </section>
@@ -592,7 +608,7 @@
               Struktur Tim Penggerak ConeBab
             </h2>
             <p class="text-slate-400 text-sm sm:text-base mt-3">
-              Dipimpin oleh 4 pilar eksekutif yang berdedikasi membangun ekosistem street food modern, terukur, dan siap berekspansi ke seluruh kota.
+              Dipimpin oleh pilar eksekutif yang berdedikasi membangun ekosistem bisnis food and beverage modern, terukur, dan siap berekspansi ke seluruh kota.
             </p>
           </div>
 
@@ -623,7 +639,7 @@
               </span>
               <h4 class="font-heading font-extrabold text-lg text-white">Chief Operating Officer</h4>
               <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                Mengontrol produksi dapur sentral, standarisasi mutu kulit tortilla kerucut, dan rantai pasokan bahan baku.
+                Mengontrol produksi dapur sentral, standarisasi mutu kulit tortilla kerucut, dan rantai pasokan logistik bahan baku.
               </p>
             </div>
 
@@ -637,7 +653,7 @@
               </span>
               <h4 class="font-heading font-extrabold text-lg text-white">Chief Marketing Officer</h4>
               <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                Merancang kampanye media sosial, aktivasi komunitas sekolah/kampus, dan program loyalitas pelanggan setia.
+                Merancang kampanye korporat, aktivasi brand awareness, dan strategi pemasaran business-to-business (B2B).
               </p>
             </div>
 
@@ -651,7 +667,7 @@
               </span>
               <h4 class="font-heading font-extrabold text-lg text-white">Chief Financial Officer</h4>
               <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                Menjaga rasio HPP tetap di bawah 45%, efisiensi biaya bahan mentah, serta kalkulasi pembagian hasil mitra.
+                Menjaga efisiensi modal, analisis profitabilitas operasional, serta manajemen proyeksi keuangan kemitraan.
               </p>
             </div>
 
@@ -670,10 +686,10 @@
               Peluang Bisnis
             </span>
             <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
-              Kemitraan & Simulasi Keuntungan Gerai
+              Kemitraan Bisnis ConeBab
             </h2>
             <p class="text-slate-600 text-base mt-3">
-              Mulai usaha gerai jajanan modern bervolume tinggi dengan sistem operasional praktis dan margin kotor yang kuat.
+              Mulai usaha gerai jajanan modern bervolume tinggi dengan sistem operasional praktis dan potensi return of investment yang terukur.
             </p>
           </div>
 
@@ -682,44 +698,44 @@
             <!-- Left Side: Simulator -->
             <div class="lg:col-span-6 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
               <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
-                Kalkulator Interaktif
+                Proyeksi Bisnis
               </span>
               <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 mb-2">
-                Simulasi Omzet & Laba
+                Simulasi Operasional Gerai
               </h3>
               <p class="text-slate-500 text-xs sm:text-sm mb-6">
-                Geser target porsi harian untuk melihat proyeksi omzet dan keuntungan kotor bulanan gerai Anda.
+                Geser estimasi volume operasional harian untuk melihat proyeksi pergerakan bisnis gerai satelit standar. (Ilustrasi estimasi kasar)
               </p>
 
               <!-- Input Slider -->
               <div class="space-y-6">
                 <div>
                   <div class="flex justify-between items-center mb-2">
-                    <label for="portionSlider" class="text-xs font-bold uppercase tracking-wider text-slate-700">Target Penjualan Harian</label>
-                    <span id="portionDisplay" class="font-heading font-extrabold text-xl text-brand-600">150 Porsi / Hari</span>
+                    <label for="portionSlider" class="text-xs font-bold uppercase tracking-wider text-slate-700">Estimasi Volume (Unit/Hari)</label>
+                    <span id="portionDisplay" class="font-heading font-extrabold text-xl text-brand-600">150 Unit</span>
                   </div>
                   <input type="range" id="portionSlider" min="50" max="400" step="25" value="150" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-600">
                   <div class="flex justify-between text-[11px] text-slate-400 mt-2 font-medium">
-                    <span>50 Cone</span>
-                    <span>200 Cone</span>
-                    <span>400 Cone</span>
+                    <span>50 Unit</span>
+                    <span>200 Unit</span>
+                    <span>400 Unit</span>
                   </div>
                 </div>
 
                 <!-- Calculated Metrics -->
                 <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
                   <div class="bg-white p-5 rounded-2xl border border-slate-200">
-                    <span class="text-[11px] font-semibold text-slate-400 uppercase block mb-1">Omzet Bulanan</span>
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase block mb-1">Estimasi Gross Revenue (Bulan)</span>
                     <span id="monthlyRevenue" class="font-heading font-black text-xl sm:text-2xl text-slate-900">Rp 22.500.000</span>
                   </div>
                   <div class="bg-brand-50 p-5 rounded-2xl border border-brand-200">
-                    <span class="text-[11px] font-semibold text-brand-800 uppercase block mb-1">Estimasi Laba Kotor</span>
+                    <span class="text-[11px] font-semibold text-brand-800 uppercase block mb-1">Estimasi Gross Profit Margin</span>
                     <span id="grossProfit" class="font-heading font-black text-xl sm:text-2xl text-brand-600">Rp 12.600.000</span>
                   </div>
                 </div>
 
                 <div class="p-4 rounded-xl bg-slate-100 text-[12px] text-slate-500 leading-relaxed">
-                  <p><strong>Dasar Perhitungan:</strong> 30 hari operasional penuh dengan estimasi HPP bahan baku rata-rata Rp2.200 per cone (kulit kerucut, daging, selada, dan kemasan sleeve).</p>
+                  <p><strong>Catatan Disclaimer:</strong> Angka di atas merupakan simulasi kotor operasional berdasarkan rata-rata benchmark industri dan asumsi nilai jual ritel standar. Hasil aktual dapat bervariasi bergantung pada lokasi, beban biaya operasional lokal, dan strategi manajerial mitra.</p>
                 </div>
               </div>
             </div>
@@ -731,33 +747,33 @@
                   Formulir Kemitraan
                 </span>
                 <h3 class="font-heading font-extrabold text-2xl text-slate-900 mb-2">
-                  Daftar Buka Booth di Kotamu
+                  Pengajuan Kemitraan B2B
                 </h3>
                 <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                  Paket kemitraan booth portabel lengkap dengan perlengkapan pemanas daging, rak akrilik cone, dan pasokan bahan baku reguler. Data akan otomatis masuk ke sistem database spreadsheet kami.
+                  Silakan tinggalkan kontak Anda untuk menerima proposal bisnis lengkap (Company Profile & Franchise Deck) dari tim pengembangan bisnis kami.
                 </p>
 
                 <form id="contactForm" onsubmit="handleInquiry(event)" class="space-y-4">
                   <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nama Lengkap</label>
-                    <input type="text" id="inputNama" name="nama" required placeholder="Contoh: Budi Pratama" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nama Perwakilan / Entitas Bisnis</label>
+                    <input type="text" id="inputNama" name="nama" required placeholder="Contoh: PT Bina Sukses / Bapak Budi" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
                   </div>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nomor WhatsApp</label>
+                      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nomor Kontak (WhatsApp)</label>
                       <input type="tel" id="inputWa" name="whatsapp" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
                     </div>
                     <div>
-                      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Rencana Kota / Lokasi</label>
+                      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Area Minat Operasional</label>
                       <input type="text" id="inputLokasi" name="lokasi" required placeholder="Contoh: Jakarta Selatan" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
                     </div>
                   </div>
                   <div>
-                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Pesan atau Pertanyaan</label>
-                    <textarea id="inputPesan" name="pesan" rows="3" placeholder="Ceritakan rencana lokasi atau pertanyaan kemitraan..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm"></textarea>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Pesan atau Latar Belakang (Opsional)</label>
+                    <textarea id="inputPesan" name="pesan" rows="3" placeholder="Informasi tambahan terkait profil Anda atau pertanyaan spesifik..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm"></textarea>
                   </div>
                   <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-500 disabled:bg-slate-400 text-white font-heading font-bold text-sm shadow-lg shadow-brand-500/25 transition-all flex items-center justify-center gap-2">
-                    <span id="btnText">Kirim Pengajuan Kemitraan</span>
+                    <span id="btnText">Kirim Permintaan Proposal</span>
                     <i id="btnIcon" class="fa-solid fa-paper-plane"></i>
                   </button>
                 </form>
@@ -784,38 +800,37 @@
             <span class="font-heading font-black text-xl text-white tracking-tight">CONE<span class="text-brand-500">BAB</span></span>
           </div>
           <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-            Pelopor kebab cone praktis di Indonesia. Menghadirkan camilan gurih berkualitas tinggi yang anti ribet, lezat, dan ramah di kantong.
+            Pelopor kebab cone praktis di Indonesia. Menghadirkan model bisnis kuliner modern yang efisien, inovatif, dan berfokus pada kualitas terstandarisasi.
           </p>
         </div>
 
         <div class="md:col-span-3 text-xs sm:text-sm">
-          <p class="font-bold text-white uppercase tracking-wider mb-3">Halaman Website</p>
+          <p class="font-bold text-white uppercase tracking-wider mb-3">Halaman Korporat</p>
           <ul class="space-y-2">
             <li><button onclick="navigateTo('beranda')" class="hover:text-white transition-colors">Beranda</button></li>
-            <li><button onclick="navigateTo('tentang')" class="hover:text-white transition-colors">Tentang Perusahaan</button></li>
-            <li><button onclick="navigateTo('keunggulan')" class="hover:text-white transition-colors">Keunggulan Produk</button></li>
-            <li><button onclick="navigateTo('menu')" class="hover:text-white transition-colors">Varian Menu</button></li>
-            <li><button onclick="navigateTo('tim')" class="hover:text-white transition-colors">Struktur Tim</button></li>
-            <li><button onclick="navigateTo('kemitraan')" class="hover:text-white transition-colors">Peluang Kemitraan</button></li>
+            <li><button onclick="navigateTo('tentang')" class="hover:text-white transition-colors">Profil Perusahaan</button></li>
+            <li><button onclick="navigateTo('keunggulan')" class="hover:text-white transition-colors">Keunggulan Bisnis</button></li>
+            <li><button onclick="navigateTo('produk')" class="hover:text-white transition-colors">Produk Kami</button></li>
+            <li><button onclick="navigateTo('tim')" class="hover:text-white transition-colors">Jajaran Manajemen</button></li>
+            <li><button onclick="navigateTo('kemitraan')" class="hover:text-white transition-colors">Peluang Kemitraan B2B</button></li>
           </ul>
         </div>
 
         <div class="md:col-span-4 text-xs sm:text-sm">
-          <p class="font-bold text-white uppercase tracking-wider mb-3">Hubungi Tim Kami</p>
-          <p class="text-slate-400 mb-2"><i class="fa-regular fa-envelope mr-2 text-brand-500"></i> halo@conebab.id</p>
-          <p class="text-slate-400 mb-4"><i class="fa-brands fa-whatsapp mr-2 text-emerald-500"></i> +62 812-3456-7890</p>
+          <p class="font-bold text-white uppercase tracking-wider mb-3">Kontak Representatif</p>
+          <p class="text-slate-400 mb-2"><i class="fa-regular fa-envelope mr-2 text-brand-500"></i> partnership@conebab.id</p>
+          <p class="text-slate-400 mb-4"><i class="fa-brands fa-whatsapp mr-2 text-emerald-500"></i> +62 812-3456-7890 (Business Only)</p>
           <div class="flex gap-2">
+            <span class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-linkedin-in"></i></span>
             <span class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-instagram"></i></span>
-            <span class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-tiktok"></i></span>
-            <span class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-whatsapp"></i></span>
           </div>
         </div>
 
       </div>
 
       <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
-        <p>&copy; 2026 ConeBab Indonesia. All Rights Reserved.</p>
-        <p class="mt-2 sm:mt-0">Sistem Navigasi Multi-Halaman Interaktif.</p>
+        <p>&copy; 2026 ConeBab Indonesia Corporate Profile. All Rights Reserved.</p>
+        <p class="mt-2 sm:mt-0">Dirancang untuk kebutuhan presentasi bisnis & profil perusahaan.</p>
       </div>
     </div>
   </footer>
@@ -827,12 +842,12 @@
   </div>
 
   <script>
-    const validPages = ['beranda', 'tentang', 'keunggulan', 'menu', 'tim', 'kemitraan'];
+    const validPages = ['beranda', 'tentang', 'keunggulan', 'produk', 'tim', 'kemitraan'];
     const pageTitles = {
       'beranda': 'Beranda',
       'tentang': 'Tentang Kami',
-      'keunggulan': 'Keunggulan Produk',
-      'menu': 'Varian Menu',
+      'keunggulan': 'Keunggulan Bisnis',
+      'produk': 'Produk Kami',
       'tim': 'Struktur Tim',
       'kemitraan': 'Peluang Kemitraan'
     };
@@ -907,7 +922,7 @@
       }, 2800);
     }
 
-    // Profit & Revenue Calculator Logic
+    // Profit & Revenue Calculator Logic (Adjusted for generic B2B presentation)
     const portionSlider = document.getElementById('portionSlider');
     const portionDisplay = document.getElementById('portionDisplay');
     const monthlyRevenue = document.getElementById('monthlyRevenue');
@@ -915,15 +930,15 @@
 
     function updateCalculations() {
       const portions = parseInt(portionSlider.value);
-      const sellingPrice = 5000;
-      const hppPerPortion = 2200; // Kulit kerucut, daging, selada, sleeve kemasan
+      const assumedRetailPrice = 5000;
+      const assumedHpp = 2200; // Asumsi beban pokok kasar
       const daysInMonth = 30;
 
-      const dailyRev = portions * sellingPrice;
+      const dailyRev = portions * assumedRetailPrice;
       const monthlyRev = dailyRev * daysInMonth;
-      const monthlyProfit = (sellingPrice - hppPerPortion) * portions * daysInMonth;
+      const monthlyProfit = (assumedRetailPrice - assumedHpp) * portions * daysInMonth;
 
-      portionDisplay.innerText = `${portions} Porsi / Hari`;
+      portionDisplay.innerText = `${portions} Unit`;
       monthlyRevenue.innerText = `Rp ${monthlyRev.toLocaleString('id-ID')}`;
       grossProfit.innerText = `Rp ${monthlyProfit.toLocaleString('id-ID')}`;
     }
@@ -953,7 +968,7 @@
 
       // Tampilkan indikator loading pada tombol
       btn.disabled = true;
-      btnText.innerText = 'Menyimpan data...';
+      btnText.innerText = 'Memproses permintaan...';
       btnIcon.className = 'fa-solid fa-circle-notch fa-spin';
 
       try {
@@ -967,18 +982,17 @@
             },
             body: JSON.stringify(formData)
           });
-          showQuickToast('Berhasil! Data Anda telah tersimpan di Google Sheets tim ConeBab.');
+          showQuickToast('Permintaan proposal terkirim! Tim kami akan segera menghubungi Anda.');
         } else {
-          // Simulasi berhasil jika URL Script belum diisi
-          showQuickToast('Pengajuan terkirim! (Hubungkan GOOGLE_SCRIPT_URL untuk menyimpan langsung ke Sheets).');
+          showQuickToast('Permintaan terkirim! (Hubungkan URL Script untuk integrasi database).');
         }
 
         document.getElementById('contactForm').reset();
       } catch (error) {
-        showQuickToast('Gagal mengirim data. Silakan coba beberapa saat lagi.');
+        showQuickToast('Terjadi kesalahan koneksi. Silakan coba kembali.');
       } finally {
         btn.disabled = false;
-        btnText.innerText = 'Kirim Pengajuan Kemitraan';
+        btnText.innerText = 'Kirim Permintaan Proposal';
         btnIcon.className = 'fa-solid fa-paper-plane';
       }
     }
