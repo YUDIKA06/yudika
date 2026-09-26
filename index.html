@@ -1,77 +1,999 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="h-full bg-slate-50">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinanceTrack - Aplikasi Keuangan</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConeBab — Kebab Cone Praktis Pertama di Indonesia</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+            },
+            dark: {
+              800: '#1e293b',
+              900: '#0f172a',
+              950: '#020617',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Outfit"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .cone-pattern {
+      background-color: #0f172a;
+      background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .page-section {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+    }
+    .page-section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .nav-link.active-nav {
+      color: #ea580c;
+      background-color: #fff7ed;
+    }
+  </style>
 </head>
-<body class="bg-gray-50">
-    <div id="root"></div>
+<body class="h-full flex flex-col font-sans antialiased text-slate-800 bg-slate-50 selection:bg-brand-500 selection:text-white">
 
-    <script type="text/babel">
-        const { useState } = React;
-        const { LayoutDashboard, TrendingUp, DollarSign, ArrowUpRight, ArrowDownRight, Activity, Users as UsersIcon } = lucide;
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#beranda" onclick="navigateTo('beranda')" class="flex items-center gap-2.5 group cursor-pointer">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-brand-500/25 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-pizza-slice transform rotate-180 text-xl"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-black text-2xl tracking-tight text-slate-900 leading-none">CONE<span class="text-brand-600">BAB</span></span>
+          <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase mt-0.5">Kebab Kerucut Praktis</span>
+        </div>
+      </a>
 
-        function App() {
-            const [activeMenu, setActiveMenu] = useState('Dashboard');
+      <!-- Desktop Multi-Page Nav Menu -->
+      <nav class="hidden lg:flex items-center gap-1 font-semibold text-sm text-slate-600">
+        <button onclick="navigateTo('beranda')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="beranda">Beranda</button>
+        <button onclick="navigateTo('tentang')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="tentang">Tentang Kami</button>
+        <button onclick="navigateTo('keunggulan')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="keunggulan">Keunggulan</button>
+        <button onclick="navigateTo('menu')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="menu">Varian Menu</button>
+        <button onclick="navigateTo('tim')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="tim">Struktur Tim</button>
+        <button onclick="navigateTo('kemitraan')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="kemitraan">Kemitraan</button>
+      </nav>
 
-            const ProfitabilityContent = () => {
-                const data = ['Software SaaS', 'Jasa Konsultasi', 'Maintenance IT', 'Cloud Hosting', 'Web Development'];
-                return (
-                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                        <table className="w-full text-left">
-                            <thead><tr className="border-b"><th className="p-4">Produk</th><th className="p-4">Margin</th></tr></thead>
-                            <tbody>
-                                {data.map((p, i) => (
-                                    <tr key={i} className="border-b">
-                                        <td className="p-4">{p}</td>
-                                        <td className="p-4 font-bold text-green-600">{60 + i * 5}%</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+      <!-- Action Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button onclick="navigateTo('kemitraan')" class="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-brand-600 text-white text-sm font-bold shadow-md hover:shadow-brand-500/30 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-handshake"></i>
+          <span>Gabung Mitra</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700 transition-colors">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Nav -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 flex-col gap-2 font-semibold text-slate-700 shadow-xl">
+      <button onclick="navigateTo('beranda'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="beranda">
+        <i class="fa-solid fa-house w-5 text-slate-400"></i> Beranda
+      </button>
+      <button onclick="navigateTo('tentang'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="tentang">
+        <i class="fa-solid fa-building w-5 text-slate-400"></i> Tentang Kami
+      </button>
+      <button onclick="navigateTo('keunggulan'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="keunggulan">
+        <i class="fa-solid fa-star w-5 text-slate-400"></i> Keunggulan
+      </button>
+      <button onclick="navigateTo('menu'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="menu">
+        <i class="fa-solid fa-utensils w-5 text-slate-400"></i> Varian Menu
+      </button>
+      <button onclick="navigateTo('tim'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="tim">
+        <i class="fa-solid fa-users w-5 text-slate-400"></i> Struktur Tim
+      </button>
+      <button onclick="navigateTo('kemitraan'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg bg-brand-50 text-brand-700 font-bold flex items-center gap-3" data-page="kemitraan">
+        <i class="fa-solid fa-handshake w-5 text-brand-600"></i> Kemitraan & Simulasi
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Breadcrumb Bar -->
+  <div class="bg-slate-100/80 border-b border-slate-200/80 py-2.5 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between text-xs text-slate-500">
+      <div class="flex items-center gap-2">
+        <span class="hover:text-slate-800 cursor-pointer" onclick="navigateTo('beranda')"><i class="fa-solid fa-house mr-1"></i> Home</span>
+        <span>/</span>
+        <span id="breadcrumbCurrent" class="font-bold text-brand-600 capitalize">Beranda</span>
+      </div>
+      <span class="hidden sm:inline-block text-slate-400">Kebab Kerucut Modern • Anti Bocor & Praktis</span>
+    </div>
+  </div>
+
+  <!-- MAIN MULTI-PAGE CONTAINER -->
+  <main class="flex-1">
+
+    <section id="page-beranda" class="page-section active">
+      <div class="cone-pattern text-white py-20 lg:py-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            <div class="lg:col-span-7 text-center lg:text-left">
+              <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 font-bold text-xs uppercase tracking-wider mb-6">
+                <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                Inovasi Jajanan Jalanan Modern
+              </div>
+              
+              <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.15] mb-6">
+                Kebab Cone Praktis: <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-amber-300 to-brand-500">
+                  Anti Bocor, Gurih Mantap,
+                </span> <br>
+                Cuma Rp5.000!
+              </h1>
+
+              <p class="text-slate-300 text-lg sm:text-xl font-normal max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                Menikmati kebab lezat kini cukup dalam satu genggaman tangan. Kulit tortilla renyah berbentuk kerucut dengan isian daging bumbu melimpah dan saus nikmat tanpa takut rembes mengotori pakaian.
+              </p>
+
+              <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
+                <button onclick="navigateTo('menu')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-amber-500 text-white font-heading font-bold text-base shadow-xl shadow-brand-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all text-center flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-utensils"></i>
+                  <span>Jelajahi Menu Kami</span>
+                </button>
+                <button onclick="navigateTo('kemitraan')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-800/90 hover:bg-slate-800 text-white font-heading font-semibold text-base border border-slate-700 hover:border-slate-600 transition-all text-center flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-calculator"></i>
+                  <span>Hitung Simulasi Laba</span>
+                </button>
+              </div>
+
+              <!-- Micro Stats -->
+              <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800">
+                <div>
+                  <p class="font-heading font-black text-2xl sm:text-3xl text-white">100%</p>
+                  <p class="text-xs sm:text-sm font-medium text-slate-400 mt-1">Anti Tumpah (Cone)</p>
+                </div>
+                <div>
+                  <p class="font-heading font-black text-2xl sm:text-3xl text-brand-400">&lt; 15 dtk</p>
+                  <p class="text-xs sm:text-sm font-medium text-slate-400 mt-1">Penyajian Kilat</p>
+                </div>
+                <div>
+                  <p class="font-heading font-black text-2xl sm:text-3xl text-amber-400">Rp5.000</p>
+                  <p class="text-xs sm:text-sm font-medium text-slate-400 mt-1">Harga Terjangkau</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual Showcase Card -->
+            <div class="lg:col-span-5 flex justify-center">
+              <div class="relative w-full max-w-md">
+                <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-600 to-amber-500 rounded-3xl blur-2xl opacity-40"></div>
+                <div class="relative rounded-3xl bg-slate-900 border border-slate-800 p-7 text-white shadow-2xl">
+                  <div class="flex items-center justify-between mb-5">
+                    <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                      Flagship Snack
+                    </span>
+                    <span class="text-xs font-semibold text-slate-400">Varian Terlaris 🔥</span>
+                  </div>
+
+                  <div class="h-64 rounded-2xl bg-gradient-to-b from-slate-800 to-slate-950 flex flex-col items-center justify-center p-6 border border-slate-800 relative overflow-hidden group">
+                    <div class="w-32 h-32 rounded-full bg-brand-500/20 blur-xl absolute"></div>
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                      <div class="w-24 h-28 flex items-center justify-center">
+                        <i class="fa-solid fa-pizza-slice text-7xl text-brand-500 transform rotate-180 drop-shadow-[0_10px_15px_rgba(234,88,12,0.4)] group-hover:scale-110 transition-transform"></i>
+                      </div>
+                      <h4 class="font-heading font-extrabold text-xl mt-3 text-white">ConeBab Original Beef</h4>
+                      <p class="text-xs text-slate-400 mt-1">Tortilla Garing • Daging Tumis Rempah • Mayo Creamy</p>
                     </div>
-                );
-            };
+                  </div>
 
-            const DashboardContent = () => (
-                <div className="grid grid-cols-3 gap-6">
-                    {[ {l: 'Pendapatan', v: '250jt'}, {l: 'Pengeluaran', v: '150jt'}, {l: 'Laba Bersih', v: '100jt'} ].map((item, i) => (
-                        <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border">
-                            <p className="text-gray-500 text-sm">{item.l}</p>
-                            <p className="text-2xl font-bold">{item.v}</p>
-                        </div>
-                    ))}
+                  <div class="mt-6 flex items-center justify-between pt-4 border-t border-slate-800">
+                    <div>
+                      <span class="text-xs text-slate-400 block font-medium">Harga Konsumen</span>
+                      <span class="font-heading font-black text-3xl text-brand-400">Rp5.000</span>
+                    </div>
+                    <button onclick="navigateTo('menu')" class="px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm transition-all flex items-center gap-2">
+                      <span>Lihat Semua Menu</span>
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
                 </div>
-            );
+              </div>
+            </div>
 
-            return (
-                <div className="flex min-h-screen">
-                    <aside className="w-64 bg-slate-900 text-white p-6">
-                        <h1 className="text-xl font-bold mb-8 text-blue-400">FinanceTrack</h1>
-                        <nav className="space-y-2">
-                            {['Dashboard', 'Profitability'].map(item => (
-                                <button key={item} onClick={() => setActiveMenu(item)} className={`w-full p-3 rounded-lg ${activeMenu === item ? 'bg-blue-600' : 'hover:bg-slate-800'}`}>
-                                    {item}
-                                </button>
-                            ))}
-                        </nav>
-                    </aside>
-                    <main className="flex-1 p-8">
-                        <h2 className="text-2xl font-bold mb-6">{activeMenu}</h2>
-                        {activeMenu === 'Dashboard' ? <DashboardContent /> : <ProfitabilityContent />}
-                    </main>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Feature Grid on Home -->
+      <div class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-hand"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-base text-slate-900 mb-1">Makan Satu Tangan</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Format kerucut mempermudah jajan sambil jalan tanpa perlu repot mengupas kertas.</p>
+              </div>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-base text-slate-900 mb-1">Tanpa Antrean Lama</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Daging hangat siap sendok dan cone pre-baked mempercepat waktu saji di bawah 15 detik.</p>
+              </div>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+                <i class="fa-solid fa-coins"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-base text-slate-900 mb-1">Harga Sangat Terjangkau</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">Menjangkau pangsa pasar pelajar, mahasiswa, dan komuter dengan daya beli spontan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-tentang" class="page-section">
+      <div class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+              Profil Perusahaan
+            </span>
+            <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+              Tentang Usaha ConeBab
+            </h2>
+            <p class="text-slate-600 text-base mt-3">
+              Membangun standar baru jajanan gurih jalanan yang higienis, terstruktur, dan mudah dinikmati siapa saja.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div class="lg:col-span-5">
+              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-gradient-to-tr from-brand-600 to-amber-500 p-8 sm:p-10 text-white">
+                <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider inline-block mb-4">
+                  Visi & Komitmen
+                </span>
+                <h3 class="font-heading font-extrabold text-2xl sm:text-3xl mb-4 leading-tight">
+                  Mendemokratisasi Camilan Daging Berkualitas di Indonesia
+                </h3>
+                <p class="text-white/90 text-sm leading-relaxed mb-6">
+                  Kami berdedikasi menciptakan jajanan modern bernilai tinggi dengan standar kebersihan terjaga, rasa yang konsisten, dan harga yang terjangkau bagi semua kalangan, mulai dari pelajar hingga masyarakat perkotaan yang dinamis.
+                </p>
+                <div class="p-4 rounded-2xl bg-black/20 backdrop-blur-sm border border-white/10 flex items-center gap-4">
+                  <i class="fa-solid fa-shield-halved text-3xl text-amber-300"></i>
+                  <div class="text-xs">
+                    <p class="font-bold text-white uppercase tracking-wider">Higienis & Terstandarisasi</p>
+                    <p class="text-slate-200">100% Halal dengan proses pengolahan dapur sentral terpadu.</p>
+                  </div>
                 </div>
-            );
+              </div>
+            </div>
+
+            <div class="lg:col-span-7">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 font-bold text-xs uppercase tracking-wider mb-3">
+                <i class="fa-solid fa-building"></i>
+                About Our Company
+              </div>
+              <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 tracking-tight leading-tight mb-5">
+                Inovasi Kuliner Cepat Saji dalam Format Savory Cone
+              </h3>
+              
+              <div class="space-y-4 text-slate-600 text-base leading-relaxed">
+                <p>
+                  <strong>ConeBab</strong> adalah usaha kuliner modern yang bergerak di kategori <em>quick-service street food</em>, berfokus pada inovasi camilan daging gurih siap saji dalam format <em>savory cone</em>. Didirikan dengan semangat menyajikan makanan berkualitas tinggi yang mudah diakses, kami mengombinasikan racikan rempah khas, bahan baku pilihan, dan sistem operasional cepat saji untuk menghadirkan pengalaman jajan yang praktis, higienis, serta ramah di kantong setiap hari.
+                </p>
+                <p>
+                  Melalui sistem dapur terintegrasi dan standarisasi resep yang presisi, kami berkomitmen untuk terus menghadirkan pilihan camilan harian yang lezat, terjangkau, serta relevan dengan gaya hidup masyarakat yang serba cepat.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-100">
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <p class="font-heading font-black text-2xl text-slate-900">100%</p>
+                  <p class="text-xs text-slate-500 font-medium">Bahan Baku Halal</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <p class="font-heading font-black text-2xl text-brand-600">3x Lipat</p>
+                  <p class="text-xs text-slate-500 font-medium">Efisiensi Bahan</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                  <p class="font-heading font-black text-2xl text-amber-600">Rp5.000</p>
+                  <p class="text-xs text-slate-500 font-medium">Harga Bersahabat</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="page-keunggulan" class="page-section">
+      <div class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+              Nilai Keunggulan
+            </span>
+            <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+              Kenapa ConeBab Berbeda dari Kebab Biasa?
+            </h2>
+            <p class="text-slate-600 text-base mt-3">
+              Kami memecahkan tiga kendala utama kebab konvensional lewat rekayasa bentuk dan model operasional modern.
+            </p>
+          </div>
+
+          <!-- 3 Pillars Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            
+            <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+              <div>
+                <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                  <i class="fa-solid fa-droplet-slash"></i>
+                </div>
+                <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">100% Anti-Bocor & Rapi</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Bentuk kerucut dengan bagian bawah tertutup rapat dan ditopang <em>paper cone sleeve</em> khusus, memastikan minyak atau saus tidak menetes mengotori pakaian saat disantap sambil jalan.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-600 flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Praktis Satu Tangan (On-The-Go)</span>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+              <div>
+                <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-6">
+                  <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+                <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Penyajian Kilat (&lt;15 Detik)</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Cone sudah dipanggang kaku dari dapur persiapan. Kru booth cukup mengambil cone, mengisi selada, menyendok daging hangat dari pemanas, dan memberi saus. Antrean mengalir lancar!
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-600 flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Tanpa Waktu Tunggu Lama</span>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+              <div>
+                <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-6">
+                  <i class="fa-solid fa-wallet"></i>
+                </div>
+                <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Harga Pas di Kantong Pelajar</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Cukup selembar uang Rp5.000, siapa pun bisa menikmati camilan daging gurih yang lezat. Sangat cocok untuk mengganjal lapar sore tanpa harus membayar porsi berat Rp15.000+.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-600 flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Impulse Buying Tinggi</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Comparison Table -->
+          <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+            <h3 class="font-heading font-extrabold text-2xl text-slate-900 mb-6">Matriks Perbandingan Produk</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-sm">
+                <thead>
+                  <tr class="border-b border-slate-200 text-slate-400 font-bold uppercase text-xs">
+                    <th class="py-3 px-4">Parameter</th>
+                    <th class="py-3 px-4">Kebab Konvensional</th>
+                    <th class="py-3 px-4 text-brand-600">ConeBab (Kebab Cone)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-slate-600">
+                  <tr>
+                    <td class="py-4 px-4 font-bold text-slate-900">Titik Harga</td>
+                    <td class="py-4 px-4">Rp12.000 – Rp20.000 (perlu pertimbangan)</td>
+                    <td class="py-4 px-4 font-bold text-brand-600">Rp5.000 (Spontan / Uang Pas)</td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-4 font-bold text-slate-900">Cara Santap</td>
+                    <td class="py-4 px-4">Dua tangan, kupas kertas bertahap, rawan sobek</td>
+                    <td class="py-4 px-4 font-bold text-brand-600">Satu tangan layaknya es krim (Zero Leak)</td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-4 font-bold text-slate-900">Waktu Tunggu</td>
+                    <td class="py-4 px-4">2 hingga 3 menit per porsi</td>
+                    <td class="py-4 px-4 font-bold text-brand-600">&lt; 15 detik (Direct Assembly)</td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-4 font-bold text-slate-900">Target Konsumsi</td>
+                    <td class="py-4 px-4">Makanan berat utama</td>
+                    <td class="py-4 px-4 font-bold text-brand-600">Snack santai pengganjal lapar</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="page-menu" class="page-section">
+      <div class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+              <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+                Katalog Menu
+              </span>
+              <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+                Varian Menu ConeBab
+              </h2>
+              <p class="text-slate-600 text-base mt-2">Dibuat dari bahan pilihan berkualitas dengan resep bumbu gurih khas nusantara.</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-2">
+              <span class="text-xs bg-slate-100 px-3.5 py-2 rounded-xl text-slate-600 font-semibold flex items-center gap-1.5">
+                <i class="fa-solid fa-certificate text-brand-600"></i>
+                100% Halal & Gurih Mantap
+              </span>
+            </div>
+          </div>
+
+          <!-- Menu Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Menu 1 -->
+            <div class="rounded-3xl border border-slate-200 overflow-hidden bg-slate-50/50 hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between group">
+              <div class="p-6">
+                <div class="w-full h-44 rounded-2xl bg-gradient-to-tr from-amber-100 to-brand-50 flex items-center justify-center text-brand-600 mb-5 relative group-hover:scale-105 transition-transform">
+                  <i class="fa-solid fa-pizza-slice text-6xl transform rotate-180 drop-shadow-md"></i>
+                  <span class="absolute top-3 right-3 bg-brand-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Best Seller</span>
+                </div>
+                <h4 class="font-heading font-bold text-xl text-slate-900 mb-1">ConeBab Original</h4>
+                <p class="text-slate-500 text-xs mb-3">Tortilla krispi, tumis daging sapi rempah, selada renyah, saus tomat manis dan mayones creamy gurih.</p>
+              </div>
+              <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
+                <div>
+                  <span class="text-xs text-slate-400 block">Harga</span>
+                  <span class="font-heading font-black text-2xl text-brand-600">Rp5.000</span>
+                </div>
+                <button onclick="showQuickToast('ConeBab Original ditambahkan ke pesanan!')" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors shadow">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Menu 2 -->
+            <div class="rounded-3xl border border-slate-200 overflow-hidden bg-slate-50/50 hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between group">
+              <div class="p-6">
+                <div class="w-full h-44 rounded-2xl bg-gradient-to-tr from-red-100 to-orange-100 flex items-center justify-center text-red-600 mb-5 relative group-hover:scale-105 transition-transform">
+                  <i class="fa-solid fa-pepper-hot text-6xl drop-shadow-md"></i>
+                  <span class="absolute top-3 right-3 bg-red-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Pedas</span>
+                </div>
+                <h4 class="font-heading font-bold text-xl text-slate-900 mb-1">ConeBab Spicy Mayo</h4>
+                <p class="text-slate-500 text-xs mb-3">Daging cincang lada hitam berpadu sambal cabai rawit khas dan saus pedas gurih untuk pecinta rasa menantang.</p>
+              </div>
+              <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
+                <div>
+                  <span class="text-xs text-slate-400 block">Harga</span>
+                  <span class="font-heading font-black text-2xl text-brand-600">Rp5.000</span>
+                </div>
+                <button onclick="showQuickToast('ConeBab Spicy Mayo ditambahkan ke pesanan!')" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors shadow">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Menu 3 -->
+            <div class="rounded-3xl border border-slate-200 overflow-hidden bg-slate-50/50 hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between group">
+              <div class="p-6">
+                <div class="w-full h-44 rounded-2xl bg-gradient-to-tr from-yellow-100 to-amber-100 flex items-center justify-center text-amber-500 mb-5 relative group-hover:scale-105 transition-transform">
+                  <i class="fa-solid fa-cheese text-6xl drop-shadow-md"></i>
+                  <span class="absolute top-3 right-3 bg-amber-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Favorit</span>
+                </div>
+                <h4 class="font-heading font-bold text-xl text-slate-900 mb-1">ConeBab Cheesy Melt</h4>
+                <p class="text-slate-500 text-xs mb-3">Cone klasik dengan ekstra lelehan saus keju cheddar lembut gurih di atas daging cincang hangat.</p>
+              </div>
+              <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
+                <div>
+                  <span class="text-xs text-slate-400 block">Harga</span>
+                  <span class="font-heading font-black text-2xl text-brand-600">Rp7.000</span>
+                </div>
+                <button onclick="showQuickToast('ConeBab Cheesy Melt ditambahkan ke pesanan!')" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors shadow">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Menu 4 -->
+            <div class="rounded-3xl border border-slate-200 overflow-hidden bg-slate-50/50 hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between group">
+              <div class="p-6">
+                <div class="w-full h-44 rounded-2xl bg-gradient-to-tr from-emerald-100 to-teal-100 flex items-center justify-center text-emerald-600 mb-5 relative group-hover:scale-105 transition-transform">
+                  <i class="fa-solid fa-cubes-stacked text-6xl drop-shadow-md"></i>
+                  <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase">Hemat</span>
+                </div>
+                <h4 class="font-heading font-bold text-xl text-slate-900 mb-1">Paket Triple Trio</h4>
+                <p class="text-slate-500 text-xs mb-3">3 pcs ConeBab (1 Original, 1 Spicy, 1 Cheese) dalam satu paket hemat buat santai nongkrong rame-rame.</p>
+              </div>
+              <div class="p-6 pt-0 flex items-center justify-between border-t border-slate-100 mt-2">
+                <div>
+                  <span class="text-xs text-slate-400 block">Harga Paket</span>
+                  <span class="font-heading font-black text-2xl text-brand-600">Rp15.000</span>
+                </div>
+                <button onclick="showQuickToast('Paket Triple Trio ditambahkan ke pesanan!')" class="w-10 h-10 rounded-xl bg-slate-900 hover:bg-brand-600 text-white flex items-center justify-center transition-colors shadow">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="page-tim" class="page-section">
+      <div class="py-20 bg-slate-900 text-white min-h-[70vh]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="px-3.5 py-1.5 rounded-full bg-brand-500/20 text-brand-400 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+              Jajaran Manajemen
+            </span>
+            <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+              Struktur Tim Penggerak ConeBab
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-3">
+              Dipimpin oleh 4 pilar eksekutif yang berdedikasi membangun ekosistem street food modern, terukur, dan siap berekspansi ke seluruh kota.
+            </p>
+          </div>
+
+          <!-- 4 Leaders Grid (CEO, COO, CMO, CFO) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- CEO -->
+            <div class="bg-slate-800/80 rounded-3xl p-6 border border-slate-700 hover:border-brand-500/50 transition-all text-center flex flex-col items-center">
+              <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-brand-600 to-amber-500 flex items-center justify-center text-white text-3xl font-heading font-bold shadow-lg mb-4">
+                <i class="fa-solid fa-crown text-2xl"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-bold uppercase tracking-wider mb-2">
+                CEO
+              </span>
+              <h4 class="font-heading font-extrabold text-lg text-white">Chief Executive Officer</h4>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Menentukan arah visi bisnis jangka panjang, ekspansi gerai satelit, dan kepemimpinan strategis perusahaan.
+              </p>
+            </div>
+
+            <!-- COO -->
+            <div class="bg-slate-800/80 rounded-3xl p-6 border border-slate-700 hover:border-brand-500/50 transition-all text-center flex flex-col items-center">
+              <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-amber-600 to-yellow-500 flex items-center justify-center text-white text-3xl font-heading font-bold shadow-lg mb-4">
+                <i class="fa-solid fa-gears text-2xl"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+                COO
+              </span>
+              <h4 class="font-heading font-extrabold text-lg text-white">Chief Operating Officer</h4>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Mengontrol produksi dapur sentral, standarisasi mutu kulit tortilla kerucut, dan rantai pasokan bahan baku.
+              </p>
+            </div>
+
+            <!-- CMO -->
+            <div class="bg-slate-800/80 rounded-3xl p-6 border border-slate-700 hover:border-brand-500/50 transition-all text-center flex flex-col items-center">
+              <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-pink-600 to-rose-500 flex items-center justify-center text-white text-3xl font-heading font-bold shadow-lg mb-4">
+                <i class="fa-solid fa-bullhorn text-2xl"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-bold uppercase tracking-wider mb-2">
+                CMO
+              </span>
+              <h4 class="font-heading font-extrabold text-lg text-white">Chief Marketing Officer</h4>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Merancang kampanye media sosial, aktivasi komunitas sekolah/kampus, dan program loyalitas pelanggan setia.
+              </p>
+            </div>
+
+            <!-- CFO -->
+            <div class="bg-slate-800/80 rounded-3xl p-6 border border-slate-700 hover:border-brand-500/50 transition-all text-center flex flex-col items-center">
+              <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white text-3xl font-heading font-bold shadow-lg mb-4">
+                <i class="fa-solid fa-chart-pie text-2xl"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
+                CFO
+              </span>
+              <h4 class="font-heading font-extrabold text-lg text-white">Chief Financial Officer</h4>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Menjaga rasio HPP tetap di bawah 45%, efisiensi biaya bahan mentah, serta kalkulasi pembagian hasil mitra.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="page-kemitraan" class="page-section">
+      <div class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+              Peluang Bisnis
+            </span>
+            <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+              Kemitraan & Simulasi Keuntungan Gerai
+            </h2>
+            <p class="text-slate-600 text-base mt-3">
+              Mulai usaha gerai jajanan modern bervolume tinggi dengan sistem operasional praktis dan margin kotor yang kuat.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <!-- Left Side: Simulator -->
+            <div class="lg:col-span-6 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+              <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+                Kalkulator Interaktif
+              </span>
+              <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 mb-2">
+                Simulasi Omzet & Laba
+              </h3>
+              <p class="text-slate-500 text-xs sm:text-sm mb-6">
+                Geser target porsi harian untuk melihat proyeksi omzet dan keuntungan kotor bulanan gerai Anda.
+              </p>
+
+              <!-- Input Slider -->
+              <div class="space-y-6">
+                <div>
+                  <div class="flex justify-between items-center mb-2">
+                    <label for="portionSlider" class="text-xs font-bold uppercase tracking-wider text-slate-700">Target Penjualan Harian</label>
+                    <span id="portionDisplay" class="font-heading font-extrabold text-xl text-brand-600">150 Porsi / Hari</span>
+                  </div>
+                  <input type="range" id="portionSlider" min="50" max="400" step="25" value="150" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-600">
+                  <div class="flex justify-between text-[11px] text-slate-400 mt-2 font-medium">
+                    <span>50 Cone</span>
+                    <span>200 Cone</span>
+                    <span>400 Cone</span>
+                  </div>
+                </div>
+
+                <!-- Calculated Metrics -->
+                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
+                  <div class="bg-white p-5 rounded-2xl border border-slate-200">
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase block mb-1">Omzet Bulanan</span>
+                    <span id="monthlyRevenue" class="font-heading font-black text-xl sm:text-2xl text-slate-900">Rp 22.500.000</span>
+                  </div>
+                  <div class="bg-brand-50 p-5 rounded-2xl border border-brand-200">
+                    <span class="text-[11px] font-semibold text-brand-800 uppercase block mb-1">Estimasi Laba Kotor</span>
+                    <span id="grossProfit" class="font-heading font-black text-xl sm:text-2xl text-brand-600">Rp 12.600.000</span>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-100 text-[12px] text-slate-500 leading-relaxed">
+                  <p><strong>Dasar Perhitungan:</strong> 30 hari operasional penuh dengan estimasi HPP bahan baku rata-rata Rp2.200 per cone (kulit kerucut, daging, selada, dan kemasan sleeve).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: Contact Form -->
+            <div class="lg:col-span-6">
+              <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+                <span class="px-3.5 py-1.5 rounded-full bg-brand-50 text-brand-700 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+                  Formulir Kemitraan
+                </span>
+                <h3 class="font-heading font-extrabold text-2xl text-slate-900 mb-2">
+                  Daftar Buka Booth di Kotamu
+                </h3>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                  Paket kemitraan booth portabel lengkap dengan perlengkapan pemanas daging, rak akrilik cone, dan pasokan bahan baku reguler. Data akan otomatis masuk ke sistem database spreadsheet kami.
+                </p>
+
+                <form id="contactForm" onsubmit="handleInquiry(event)" class="space-y-4">
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nama Lengkap</label>
+                    <input type="text" id="inputNama" name="nama" required placeholder="Contoh: Budi Pratama" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                  </div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nomor WhatsApp</label>
+                      <input type="tel" id="inputWa" name="whatsapp" required placeholder="08xxxxxxxxxx" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                    </div>
+                    <div>
+                      <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Rencana Kota / Lokasi</label>
+                      <input type="text" id="inputLokasi" name="lokasi" required placeholder="Contoh: Jakarta Selatan" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Pesan atau Pertanyaan</label>
+                    <textarea id="inputPesan" name="pesan" rows="3" placeholder="Ceritakan rencana lokasi atau pertanyaan kemitraan..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm"></textarea>
+                  </div>
+                  <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-500 disabled:bg-slate-400 text-white font-heading font-bold text-sm shadow-lg shadow-brand-500/25 transition-all flex items-center justify-center gap-2">
+                    <span id="btnText">Kirim Pengajuan Kemitraan</span>
+                    <i id="btnIcon" class="fa-solid fa-paper-plane"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-800">
+        
+        <div class="md:col-span-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-xl bg-brand-600 flex items-center justify-center text-white">
+              <i class="fa-solid fa-pizza-slice transform rotate-180 text-sm"></i>
+            </div>
+            <span class="font-heading font-black text-xl text-white tracking-tight">CONE<span class="text-brand-500">BAB</span></span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+            Pelopor kebab cone praktis di Indonesia. Menghadirkan camilan gurih berkualitas tinggi yang anti ribet, lezat, dan ramah di kantong.
+          </p>
+        </div>
+
+        <div class="md:col-span-3 text-xs sm:text-sm">
+          <p class="font-bold text-white uppercase tracking-wider mb-3">Halaman Website</p>
+          <ul class="space-y-2">
+            <li><button onclick="navigateTo('beranda')" class="hover:text-white transition-colors">Beranda</button></li>
+            <li><button onclick="navigateTo('tentang')" class="hover:text-white transition-colors">Tentang Perusahaan</button></li>
+            <li><button onclick="navigateTo('keunggulan')" class="hover:text-white transition-colors">Keunggulan Produk</button></li>
+            <li><button onclick="navigateTo('menu')" class="hover:text-white transition-colors">Varian Menu</button></li>
+            <li><button onclick="navigateTo('tim')" class="hover:text-white transition-colors">Struktur Tim</button></li>
+            <li><button onclick="navigateTo('kemitraan')" class="hover:text-white transition-colors">Peluang Kemitraan</button></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 text-xs sm:text-sm">
+          <p class="font-bold text-white uppercase tracking-wider mb-3">Hubungi Tim Kami</p>
+          <p class="text-slate-400 mb-2"><i class="fa-regular fa-envelope mr-2 text-brand-500"></i> halo@conebab.id</p>
+          <p class="text-slate-400 mb-4"><i class="fa-brands fa-whatsapp mr-2 text-emerald-500"></i> +62 812-3456-7890</p>
+          <div class="flex gap-2">
+            <span class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-instagram"></i></span>
+            <span class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-tiktok"></i></span>
+            <span class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-whatsapp"></i></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
+        <p>&copy; 2026 ConeBab Indonesia. All Rights Reserved.</p>
+        <p class="mt-2 sm:mt-0">Sistem Navigasi Multi-Halaman Interaktif.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none border border-slate-700">
+    <i class="fa-solid fa-circle-check text-brand-500 text-lg"></i>
+    <span id="toastMessage" class="text-xs sm:text-sm font-medium">Notifikasi</span>
+  </div>
+
+  <script>
+    const validPages = ['beranda', 'tentang', 'keunggulan', 'menu', 'tim', 'kemitraan'];
+    const pageTitles = {
+      'beranda': 'Beranda',
+      'tentang': 'Tentang Kami',
+      'keunggulan': 'Keunggulan Produk',
+      'menu': 'Varian Menu',
+      'tim': 'Struktur Tim',
+      'kemitraan': 'Peluang Kemitraan'
+    };
+
+    // Multi-page navigation router
+    function navigateTo(pageId) {
+      if (!validPages.includes(pageId)) {
+        pageId = 'beranda';
+      }
+
+      // Hide all page sections
+      document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show selected page
+      const targetSection = document.getElementById(`page-${pageId}`);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+
+      // Update active states on desktop nav
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.add('active-nav');
+        } else {
+          link.classList.remove('active-nav');
+        }
+      });
+
+      // Update active states on mobile nav
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.add('bg-brand-50', 'text-brand-700', 'font-bold');
+        } else {
+          link.classList.remove('bg-brand-50', 'text-brand-700', 'font-bold');
+        }
+      });
+
+      // Update breadcrumb
+      const breadcrumb = document.getElementById('breadcrumbCurrent');
+      if (breadcrumb && pageTitles[pageId]) {
+        breadcrumb.innerText = pageTitles[pageId];
+      }
+
+      // Update URL hash without re-scrolling unexpectedly
+      window.location.hash = pageId;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle Mobile Navigation
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    }
+
+    document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
+    // Toast notification without using native alert
+    function showQuickToast(msg) {
+      const toast = document.getElementById('toastNotification');
+      const text = document.getElementById('toastMessage');
+      text.innerText = msg;
+      
+      toast.classList.remove('translate-y-24', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0');
+      }, 2800);
+    }
+
+    // Profit & Revenue Calculator Logic
+    const portionSlider = document.getElementById('portionSlider');
+    const portionDisplay = document.getElementById('portionDisplay');
+    const monthlyRevenue = document.getElementById('monthlyRevenue');
+    const grossProfit = document.getElementById('grossProfit');
+
+    function updateCalculations() {
+      const portions = parseInt(portionSlider.value);
+      const sellingPrice = 5000;
+      const hppPerPortion = 2200; // Kulit kerucut, daging, selada, sleeve kemasan
+      const daysInMonth = 30;
+
+      const dailyRev = portions * sellingPrice;
+      const monthlyRev = dailyRev * daysInMonth;
+      const monthlyProfit = (sellingPrice - hppPerPortion) * portions * daysInMonth;
+
+      portionDisplay.innerText = `${portions} Porsi / Hari`;
+      monthlyRevenue.innerText = `Rp ${monthlyRev.toLocaleString('id-ID')}`;
+      grossProfit.innerText = `Rp ${monthlyProfit.toLocaleString('id-ID')}`;
+    }
+
+    if (portionSlider) {
+      portionSlider.addEventListener('input', updateCalculations);
+    }
+
+    // URL Web App Google Apps Script Anda (Ganti dengan URL yang Anda buat dari Google Sheets)
+    const GOOGLE_SCRIPT_URL = '';
+
+    // Handle Partnership Form Submission with Google Sheets Integration
+    async function handleInquiry(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
+
+      const formData = {
+        tanggal: new Date().toLocaleString('id-ID'),
+        nama: document.getElementById('inputNama').value.trim(),
+        whatsapp: document.getElementById('inputWa').value.trim(),
+        lokasi: document.getElementById('inputLokasi').value.trim(),
+        pesan: document.getElementById('inputPesan').value.trim()
+      };
+
+      // Tampilkan indikator loading pada tombol
+      btn.disabled = true;
+      btnText.innerText = 'Menyimpan data...';
+      btnIcon.className = 'fa-solid fa-circle-notch fa-spin';
+
+      try {
+        if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.startsWith('http')) {
+          // Kirim data ke Google Sheets melalui Apps Script Web App
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+          });
+          showQuickToast('Berhasil! Data Anda telah tersimpan di Google Sheets tim ConeBab.');
+        } else {
+          // Simulasi berhasil jika URL Script belum diisi
+          showQuickToast('Pengajuan terkirim! (Hubungkan GOOGLE_SCRIPT_URL untuk menyimpan langsung ke Sheets).');
         }
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
+        document.getElementById('contactForm').reset();
+      } catch (error) {
+        showQuickToast('Gagal mengirim data. Silakan coba beberapa saat lagi.');
+      } finally {
+        btn.disabled = false;
+        btnText.innerText = 'Kirim Pengajuan Kemitraan';
+        btnIcon.className = 'fa-solid fa-paper-plane';
+      }
+    }
+
+    // Handle initial load and browser back/forward buttons
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '');
+      navigateTo(hash || 'beranda');
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const initialHash = window.location.hash.replace('#', '');
+      navigateTo(initialHash || 'beranda');
+      updateCalculations();
+    });
+  </script>
 </body>
 </html>
