@@ -19,17 +19,32 @@
       theme: {
         extend: {
           colors: {
+            // Mengubah palet dasar dari abu kebiruan ke abu-abu hangat (stone) agar serasi dengan cokelat
+            slate: {
+              50: '#fafaf9',
+              100: '#f5f5f4',
+              200: '#e7e5e4',
+              300: '#d6d3d1',
+              400: '#a8a29e',
+              500: '#78716c',
+              600: '#57534e',
+              700: '#44403c',
+              800: '#292524',
+              900: '#1c1917',
+              950: '#0c0a09',
+            },
+            // Palet Cokelat Premium Baru (Coffee & Caramel)
             brand: {
-              50: '#fff7ed',
-              100: '#ffedd5',
-              200: '#fed7aa',
-              300: '#fdba74',
-              400: '#fb923c',
-              500: '#f97316',
-              600: '#ea580c',
-              700: '#c2410c',
-              800: '#9a3412',
-              900: '#7c2d12',
+              50: '#fdf8f5',
+              100: '#f8efe9',
+              200: '#ebd9ce',
+              300: '#d9bdae',
+              400: '#c29a83',
+              500: '#a67253',
+              600: '#8a5538',
+              700: '#6e4028',
+              800: '#5a3523',
+              900: '#4a2d1e',
             },
             dark: {
               800: '#1e293b',
@@ -48,8 +63,8 @@
 
   <style>
     .cone-pattern {
-      background-color: #0f172a;
-      background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px);
+      background-color: #1c1917; /* Cokelat sangat gelap untuk background */
+      background-image: radial-gradient(rgba(138, 85, 56, 0.25) 1px, transparent 1px);
       background-size: 24px 24px;
     }
     .page-section {
@@ -64,8 +79,8 @@
       transform: translateY(0);
     }
     .nav-link.active-nav {
-      color: #ea580c;
-      background-color: #fff7ed;
+      color: #8a5538; /* Cokelat aktif */
+      background-color: #fdf8f5;
     }
   </style>
 </head>
@@ -212,12 +227,11 @@
 
                   <div class="h-64 rounded-2xl bg-gradient-to-b from-slate-800 to-slate-950 flex flex-col items-center justify-center p-6 border border-slate-800 relative overflow-hidden group">
                     <div class="w-32 h-32 rounded-full bg-brand-500/20 blur-xl absolute"></div>
-                    <div class="relative z-10 flex flex-col items-center text-center">
-                      <div class="w-24 h-28 flex items-center justify-center">
+                    <div class="relative z-10 flex flex-col items-center text-center w-full h-full">
+                      <div class="w-full h-32 flex items-center justify-center rounded-2xl overflow-hidden relative mb-3">
                         <img src="CONEBAB.png" alt="Foto ConeBab Original Beef" class="relative z-10 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out drop-shadow-[0_10px_15px_rgba(234,88,12,0.4)]">
-</div>
                       </div>
-                      <h4 class="font-heading font-extrabold text-xl mt-3 text-white">ConeBab Original</h4>
+                      <h4 class="font-heading font-extrabold text-xl mt-auto text-white">ConeBab Original</h4>
                       <p class="text-xs text-slate-400 mt-1">Tortilla Garing • Daging Tumis Rempah • Mayo Creamy</p>
                     </div>
                   </div>
@@ -500,32 +514,14 @@
                 <div class="absolute inset-0 bg-gradient-to-tr from-brand-200 to-amber-100 rounded-[2rem] transform rotate-3 scale-105 opacity-70"></div>
                 
                 <!-- Image Container -->
-                <div class="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-white rounded-[2rem] shadow-xl border border-white p-8 flex flex-col items-center justify-center overflow-hidden group">
+                <div class="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-slate-100 rounded-[2rem] shadow-xl border-4 border-white overflow-hidden group">
                   
-                  <!-- Abstract background pattern inside image area -->
-                  <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
-                  
-                  <!-- Conceptual Product Illustration using FontAwesome (Placeholder for actual high-res image) -->
-                  <div class="relative z-10 flex flex-col items-center justify-center">
-                    <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-gradient-to-b from-brand-50 to-orange-100/50 flex items-center justify-center mb-6 shadow-inner relative group-hover:scale-105 transition-transform duration-500">
-                      
-                      <!-- Central Icon representing the Cone Kebab -->
-                      <img src="CONEBAB.png" alt="Foto ConeBab Original Beef" class="relative z-10 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out drop-shadow-[0_10px_15px_rgba(234,88,12,0.4)]">
-</div>
-                      
-                      <!-- Decorative sparkles -->
-                      <i class="fa-solid fa-sparkles absolute top-8 right-8 text-amber-400 text-xl animate-pulse"></i>
-                      <i class="fa-solid fa-sparkles absolute bottom-12 left-10 text-brand-400 text-sm"></i>
-                    </div>
-                    
-                    <div class="text-center mt-2 opacity-60">
-                      <span class="text-xs font-bold uppercase tracking-widest text-slate-400">Visualisasi Produk</span>
-                    </div>
-                  </div>
+                  <!-- Full-size Product Image using CONEBAB.png -->
+                  <img src="CONEBAB.png" alt="Produk Unggulan ConeBab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out">
 
                   <!-- Overlay badge -->
-                  <div class="absolute top-6 left-6 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1.5">
-                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500"></div>
+                  <div class="absolute top-6 left-6 z-10 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1.5">
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></div>
                     Signature Product
                   </div>
                 </div>
