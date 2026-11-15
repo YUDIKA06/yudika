@@ -6,23 +6,23 @@
   <title>CONEBAB</title>
   <meta name="google-site-verification" content="aCNcAZzE7VRCRlSn-cMIO_-7jv6b8J6dehqH6q26siA" />
   <!-- Mengganti Logo Vercel dengan Logo ConeBab -->
-<link rel="icon" type="image/png" href="favicon.png" sizes="96x96">
-<link rel="apple-touch-icon" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png" sizes="96x96">
+  <link rel="apple-touch-icon" href="favicon.png">
 
-<!-- Memberitahu Google Nama Situs Anda (Bukan Vercel) -->
-<meta property="og:site_name" content="ConeBab">
-<meta property="og:title" content="ConeBab — Kebab Cone Praktis Pertama di Indonesia">
-<meta property="og:type" content="website">
+  <!-- Memberitahu Google Nama Situs Anda (Bukan Vercel) -->
+  <meta property="og:site_name" content="ConeBab">
+  <meta property="og:title" content="ConeBab — Kebab Cone Praktis Pertama di Indonesia">
+  <meta property="og:type" content="website">
 
-<!-- Skrip Terstruktur (JSON-LD) agar Google lebih cepat mengenali nama brand -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "",
-  "url": "https://conebab.vercel.app/"
-}
-</script>
+  <!-- Skrip Terstruktur (JSON-LD) agar Google lebih cepat mengenali nama brand -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ConeBab",
+    "url": "https://conebab.vercel.app/"
+  }
+  </script>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -38,37 +38,43 @@
       theme: {
         extend: {
           colors: {
-            // Mengubah palet dasar dari abu kebiruan ke abu-abu hangat (stone) agar serasi dengan cokelat
+            // Mengubah palet dasar dengan sedikit sentuhan netral hangat agar serasi dengan hijau alami
             slate: {
-              50: '#fafaf9',
-              100: '#f5f5f4',
-              200: '#e7e5e4',
-              300: '#d6d3d1',
-              400: '#a8a29e',
-              500: '#78716c',
-              600: '#57534e',
-              700: '#44403c',
-              800: '#292524',
-              900: '#1c1917',
-              950: '#0c0a09',
+              50: '#f9faf8',
+              100: '#f3f5f1',
+              200: '#e4e8e0',
+              300: '#cfd6c9',
+              400: '#9da795',
+              500: '#6f7967',
+              600: '#535b4d',
+              700: '#3f463a',
+              800: '#272c24',
+              900: '#181c16',
+              950: '#0d100c',
             },
-            // Palet Cokelat Premium Baru (Coffee & Caramel)
+            // Palet Hijau Sesuai Permintaan (#74A12E, #4E7218, #37520D)
             brand: {
-              50: '#fdf8f5',
-              100: '#f8efe9',
-              200: '#ebd9ce',
-              300: '#d9bdae',
-              400: '#c29a83',
-              500: '#a67253',
-              600: '#8a5538',
-              700: '#6e4028',
-              800: '#5a3523',
-              900: '#4a2d1e',
+              50: '#f4f9ec',
+              100: '#e5f1d3',
+              200: '#cce3ac',
+              300: '#abd07c',
+              400: '#8ebc52',
+              500: '#74A12E', // Warna Utama Cerah
+              600: '#5e8722',
+              700: '#4E7218', // Warna Sedang
+              800: '#3f5c14',
+              900: '#37520D', // Warna Gelap
+              950: '#1e2e06',
             },
-            dark: {
-              800: '#1e293b',
-              900: '#0f172a',
-              950: '#020617',
+            // Palet Aksen Pendukung (Hijau Lime / Olive Lembut sebagai pengganti amber agar harmonis)
+            accent: {
+              50: '#f7fee7',
+              100: '#ecfccb',
+              200: '#d9f99d',
+              300: '#bef264',
+              400: '#a3e635',
+              500: '#84cc16',
+              600: '#65a30d',
             }
           },
           fontFamily: {
@@ -82,8 +88,8 @@
 
   <style>
     .cone-pattern {
-      background-color: #1c1917; /* Cokelat sangat gelap untuk background */
-      background-image: radial-gradient(rgba(138, 85, 56, 0.25) 1px, transparent 1px);
+      background-color: #151f08; /* Hijau sangat gelap untuk latar hero */
+      background-image: radial-gradient(rgba(116, 161, 46, 0.25) 1.5px, transparent 1.5px);
       background-size: 24px 24px;
     }
     .page-section {
@@ -98,8 +104,8 @@
       transform: translateY(0);
     }
     .nav-link.active-nav {
-      color: #8a5538; /* Cokelat aktif */
-      background-color: #fdf8f5;
+      color: #4E7218; /* Hijau aktif (#4E7218) */
+      background-color: #f4f9ec;
     }
   </style>
 </head>
@@ -110,22 +116,22 @@
       
       <!-- Brand Logo -->
       <a href="#beranda" onclick="navigateTo('beranda')" class="flex items-center group cursor-pointer">
-        <img src="LOGO CONEBAB.png" alt="Logo ConeBab" class="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
+        <img src="LOGO CONEBAB.png" onerror="this.onerror=null; this.src='https://placehold.co/160x50/4E7218/ffffff?text=CONEBAB';" alt="Logo ConeBab" class="h-12 sm:h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-300">
       </a>
 
       <!-- Desktop Multi-Page Nav Menu -->
       <nav class="hidden lg:flex items-center gap-1 font-semibold text-sm text-slate-600">
-        <button onclick="navigateTo('beranda')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="beranda">Beranda</button>
-        <button onclick="navigateTo('tentang')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="tentang">Tentang Kami</button>
-        <button onclick="navigateTo('keunggulan')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="keunggulan">Keunggulan</button>
-        <button onclick="navigateTo('produk')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="produk">Produk Kami</button>
-        <button onclick="navigateTo('tim')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="tim">Struktur Tim</button>
-        <button onclick="navigateTo('kemitraan')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-600" data-page="kemitraan">Kemitraan</button>
+        <button onclick="navigateTo('beranda')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-700" data-page="beranda">Beranda</button>
+        <button onclick="navigateTo('tentang')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-700" data-page="tentang">Tentang Kami</button>
+        <button onclick="navigateTo('keunggulan')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-700" data-page="keunggulan">Keunggulan</button>
+        <button onclick="navigateTo('produk')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-700" data-page="produk">Produk Kami</button>
+        <button onclick="navigateTo('tim')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-700" data-page="tim">Struktur Tim</button>
+        <button onclick="navigateTo('kemitraan')" class="nav-link px-3.5 py-2 rounded-xl transition-all hover:text-brand-700" data-page="kemitraan">Kemitraan</button>
       </nav>
 
       <!-- Action Button -->
       <div class="hidden sm:flex items-center gap-3">
-        <button onclick="navigateTo('kemitraan')" class="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-brand-600 text-white text-sm font-bold shadow-md hover:shadow-brand-500/30 transition-all flex items-center gap-2">
+        <button onclick="navigateTo('kemitraan')" class="px-5 py-2.5 rounded-full bg-brand-900 hover:bg-brand-500 text-white text-sm font-bold shadow-md hover:shadow-brand-500/30 transition-all flex items-center gap-2">
           <i class="fa-solid fa-handshake"></i>
           <span>Gabung Mitra</span>
         </button>
@@ -139,23 +145,23 @@
 
     <!-- Mobile Dropdown Nav -->
     <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 flex-col gap-2 font-semibold text-slate-700 shadow-xl">
-      <button onclick="navigateTo('beranda'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="beranda">
+      <button onclick="navigateTo('beranda'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-700 flex items-center gap-3" data-page="beranda">
         <i class="fa-solid fa-house w-5 text-slate-400"></i> Beranda
       </button>
-      <button onclick="navigateTo('tentang'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="tentang">
+      <button onclick="navigateTo('tentang'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-700 flex items-center gap-3" data-page="tentang">
         <i class="fa-solid fa-building w-5 text-slate-400"></i> Tentang Kami
       </button>
-      <button onclick="navigateTo('keunggulan'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="keunggulan">
+      <button onclick="navigateTo('keunggulan'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-700 flex items-center gap-3" data-page="keunggulan">
         <i class="fa-solid fa-star w-5 text-slate-400"></i> Keunggulan
       </button>
-      <button onclick="navigateTo('produk'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="produk">
+      <button onclick="navigateTo('produk'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-700 flex items-center gap-3" data-page="produk">
         <i class="fa-solid fa-box-open w-5 text-slate-400"></i> Produk Kami
       </button>
-      <button onclick="navigateTo('tim'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-600 flex items-center gap-3" data-page="tim">
+      <button onclick="navigateTo('tim'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg hover:bg-slate-50 hover:text-brand-700 flex items-center gap-3" data-page="tim">
         <i class="fa-solid fa-users w-5 text-slate-400"></i> Struktur Tim
       </button>
       <button onclick="navigateTo('kemitraan'); toggleMobileMenu()" class="mobile-nav-link text-left py-2.5 px-3 rounded-lg bg-brand-50 text-brand-700 font-bold flex items-center gap-3" data-page="kemitraan">
-        <i class="fa-solid fa-handshake w-5 text-brand-600"></i> Kemitraan & Simulasi
+        <i class="fa-solid fa-handshake w-5 text-brand-500"></i> Kemitraan & Simulasi
       </button>
     </div>
   </header>
@@ -166,7 +172,7 @@
       <div class="flex items-center gap-2">
         <span class="hover:text-slate-800 cursor-pointer" onclick="navigateTo('beranda')"><i class="fa-solid fa-house mr-1"></i> Home</span>
         <span>/</span>
-        <span id="breadcrumbCurrent" class="font-bold text-brand-600 capitalize">Beranda</span>
+        <span id="breadcrumbCurrent" class="font-bold text-brand-700 capitalize">Beranda</span>
       </div>
       <span class="hidden sm:inline-block text-slate-400">CONEBAB</span>
     </div>
@@ -181,7 +187,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
             <div class="lg:col-span-7 text-center lg:text-left">
-              <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 font-bold text-xs uppercase tracking-wider mb-6">
+              <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-brand-500/15 border border-brand-500/40 text-brand-300 font-bold text-xs uppercase tracking-wider mb-6">
                 <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
                 Inovasi Jajanan Jalanan Modern
               </div>
@@ -195,18 +201,18 @@
               </p>
 
               <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
-                <button onclick="navigateTo('produk')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-600 to-amber-500 text-white font-heading font-bold text-base shadow-xl shadow-brand-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all text-center flex items-center justify-center gap-2">
+                <button onclick="navigateTo('produk')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 text-white font-heading font-bold text-base shadow-xl shadow-brand-500/30 hover:scale-[1.02] active:scale-[0.98] transition-all text-center flex items-center justify-center gap-2">
                   <i class="fa-solid fa-box-open"></i>
                   <span>Jelajahi Produk Kami</span>
                 </button>
-                <button onclick="navigateTo('kemitraan')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-800/90 hover:bg-slate-800 text-white font-heading font-semibold text-base border border-slate-700 hover:border-slate-600 transition-all text-center flex items-center justify-center gap-2">
-                  <i class="fa-solid fa-calculator"></i>
+                <button onclick="navigateTo('kemitraan')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-900/60 hover:bg-brand-900 text-white font-heading font-semibold text-base border border-brand-700/60 hover:border-brand-500 transition-all text-center flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-calculator text-brand-400"></i>
                   <span>Hitung Simulasi Laba</span>
                 </button>
               </div>
 
               <!-- Micro Stats -->
-              <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800">
+              <div class="grid grid-cols-3 gap-4 pt-6 border-t border-brand-900/70">
                 <div>
                   <p class="font-heading font-black text-2xl sm:text-3xl text-white">100%</p>
                   <p class="text-xs sm:text-sm font-medium text-slate-400 mt-1">Anti Tumpah (Cone)</p>
@@ -216,7 +222,7 @@
                   <p class="text-xs sm:text-sm font-medium text-slate-400 mt-1">Penyajian Kilat</p>
                 </div>
                 <div>
-                  <p class="font-heading font-black text-2xl sm:text-3xl text-amber-400">Praktis</p>
+                  <p class="font-heading font-black text-2xl sm:text-3xl text-accent-400">Praktis</p>
                   <p class="text-xs sm:text-sm font-medium text-slate-400 mt-1">Satu Genggaman</p>
                 </div>
               </div>
@@ -225,19 +231,19 @@
             <!-- Visual Showcase Card -->
             <div class="lg:col-span-5 flex justify-center">
               <div class="relative w-full max-w-md">
-                <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-600 to-amber-500 rounded-3xl blur-2xl opacity-40"></div>
-                <div class="relative rounded-3xl bg-slate-900 border border-slate-800 p-7 text-white shadow-2xl">
+                <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-500 to-brand-900 rounded-3xl blur-2xl opacity-50"></div>
+                <div class="relative rounded-3xl bg-slate-900 border border-brand-900/80 p-7 text-white shadow-2xl">
                   <div class="flex items-center justify-between mb-5">
-                    <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
+                    <span class="px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold uppercase tracking-wider border border-brand-500/30">
                       Flagship Snack
                     </span>
                   </div>
 
                   <div class="h-auto py-8 rounded-2xl bg-gradient-to-b from-slate-800 to-slate-950 flex flex-col items-center justify-center p-6 border border-slate-800 relative overflow-hidden group">
-                    <div class="w-40 h-40 rounded-full bg-brand-500/20 blur-xl absolute"></div>
+                    <div class="w-40 h-40 rounded-full bg-brand-500/25 blur-xl absolute"></div>
                     <div class="relative z-10 flex flex-col items-center text-center w-full h-full">
-                      <div class="w-40 h-40 flex items-center justify-center rounded-2xl overflow-hidden relative mb-5 shadow-lg border border-slate-700/50">
-                        <img src="CONEBAB.png" alt="Foto ConeBab Original Beef" class="relative z-10 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out drop-shadow-[0_10px_15px_rgba(234,88,12,0.4)]">
+                      <div class="w-40 h-40 flex items-center justify-center rounded-2xl overflow-hidden relative mb-5 shadow-lg border border-brand-700/40">
+                        <img src="CONEBAB.png" onerror="this.onerror=null; this.src='https://placehold.co/300x300/37520D/ffffff?text=ConeBab';" alt="Foto ConeBab Original Beef" class="relative z-10 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out drop-shadow-[0_10px_15px_rgba(116,161,46,0.4)]">
                       </div>
                       <h4 class="font-heading font-extrabold text-xl mt-auto text-white">ConeBab Original</h4>
                       <p class="text-xs text-slate-400 mt-2">Tortilla Garing • Daging Tumis Rempah • Mayo Creamy</p>
@@ -245,7 +251,7 @@
                   </div>
 
                   <div class="mt-6 pt-4 border-t border-slate-800">
-                    <button onclick="navigateTo('produk')" class="w-full px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm transition-all flex items-center justify-center gap-2">
+                    <button onclick="navigateTo('produk')" class="w-full px-5 py-3 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-md shadow-brand-500/20">
                       <span>Lihat Produk Detail</span>
                       <i class="fa-solid fa-arrow-right"></i>
                     </button>
@@ -262,8 +268,8 @@
       <div class="py-16 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
-              <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl shrink-0">
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4 hover:border-brand-300 transition-colors">
+              <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xl shrink-0">
                 <i class="fa-solid fa-hand"></i>
               </div>
               <div>
@@ -271,8 +277,8 @@
                 <p class="text-xs text-slate-600 leading-relaxed">Format kerucut mempermudah jajan sambil jalan tanpa perlu repot mengupas kertas.</p>
               </div>
             </div>
-            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
-              <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl shrink-0">
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4 hover:border-brand-300 transition-colors">
+              <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-500 flex items-center justify-center text-xl shrink-0">
                 <i class="fa-solid fa-bolt"></i>
               </div>
               <div>
@@ -280,8 +286,8 @@
                 <p class="text-xs text-slate-600 leading-relaxed">Daging hangat siap sendok dan cone pre-baked mempercepat waktu saji di bawah 15 detik.</p>
               </div>
             </div>
-            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4">
-              <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-4 hover:border-brand-300 transition-colors">
+              <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-900 flex items-center justify-center text-xl shrink-0">
                 <i class="fa-solid fa-briefcase"></i>
               </div>
               <div>
@@ -299,21 +305,21 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+            <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-900 font-bold text-xs uppercase tracking-wider inline-block mb-3">
               Profil Perusahaan
             </span>
             <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
               Tentang Usaha ConeBab
             </h2>
             <p class="text-slate-600 text-base mt-3">
-              Meningkatan standar kualitas baru, struktur, dan mudah di nikmati siapa saja.
+              Meningkatkan standar kualitas baru, terstruktur, dan mudah dinikmati siapa saja.
             </p>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             <div class="lg:col-span-5">
-              <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-gradient-to-tr from-brand-600 to-amber-500 p-8 sm:p-10 text-white">
+              <div class="rounded-3xl overflow-hidden shadow-xl border border-brand-700/30 bg-gradient-to-br from-brand-500 via-brand-700 to-brand-900 p-8 sm:p-10 text-white">
                 <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-bold uppercase tracking-wider inline-block mb-4">
                   Visi & Komitmen
                 </span>
@@ -323,11 +329,11 @@
                 <p class="text-white/90 text-sm leading-relaxed mb-6">
                   Kami berdedikasi menciptakan jajanan modern bernilai tinggi dengan standar kebersihan terjaga, rasa yang konsisten, dan harga yang dapat dijangkau berbagai kalangan, mulai dari pelajar hingga masyarakat perkotaan yang dinamis.
                 </p>
-                <div class="p-4 rounded-2xl bg-black/20 backdrop-blur-sm border border-white/10 flex items-center gap-4">
-                  <i class="fa-solid fa-shield-halved text-3xl text-amber-300"></i>
+                <div class="p-4 rounded-2xl bg-brand-950/40 backdrop-blur-sm border border-white/15 flex items-center gap-4">
+                  <i class="fa-solid fa-shield-halved text-3xl text-accent-300"></i>
                   <div class="text-xs">
                     <p class="font-bold text-white uppercase tracking-wider">Higienis & Terstandarisasi</p>
-                    <p class="text-slate-200">100% Halal dengan proses pengolahan dapur sentral terpadu.</p>
+                    <p class="text-brand-100">100% Halal dengan proses pengolahan dapur sentral terpadu.</p>
                   </div>
                 </div>
               </div>
@@ -344,24 +350,24 @@
               
               <div class="space-y-4 text-slate-600 text-base leading-relaxed">
                 <p>
-                  <strong>CONEBAB</strong> merupakan perusahaan dibidang F&B yang berfokus pada product makanan berat yang kita rancang menjadi makanan ringan. ide ini muncul dari pengamatan terhadap tingginya minta masyarakat pada maknan ringan yang inovatis namun tetap praktis.Usaha ini memadukan kreatifitas anak muda untunk menciptakan inovasi dalam merubah makanan berat menjadi makanan ringan. 
+                  <strong>CONEBAB</strong> merupakan perusahaan di bidang F&B yang berfokus pada produk makanan berat yang kami rancang menjadi makanan ringan. Ide ini muncul dari pengamatan terhadap tingginya minat masyarakat pada makanan ringan yang inovatif namun tetap praktis. Usaha ini memadukan kreativitas anak muda untuk menciptakan inovasi dalam merubah makanan berat menjadi makanan ringan.
                 </p>
                 <p>
-                  Nama <strong>CONEBAB</strong> diambil  karena merupakan trasformasi kebab dengan tortilla yang diubah menjadi bentuk kerucut (cone). Melalui nama tersebut kita hadir dengan memberikan pengalaman menikmati maknan ringan, bukan sekadar pelepas lapar, ini adalah comfort food dengan gaya baru. Kami meracik setiap porsinya untuk menjadi mood booster di tengah hari Anda yang sibuk. Rasakan bedanya, dan bersiaplah untuk menjadikannya rutinitas baru anda.
+                  Nama <strong>CONEBAB</strong> diambil karena merupakan transformasi kebab dengan tortilla yang diubah menjadi bentuk kerucut (cone). Melalui nama tersebut kami hadir memberikan pengalaman menikmati makanan ringan—bukan sekadar pelepas lapar, ini adalah comfort food dengan gaya baru. Kami meracik setiap porsinya untuk menjadi mood booster di tengah hari Anda yang sibuk. Rasakan bedanya, dan bersiaplah untuk menjadikannya rutinitas baru Anda.
                 </p>
               </div>
 
               <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-100">
-                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/70">
                   <p class="font-heading font-black text-2xl text-slate-900">100%</p>
                   <p class="text-xs text-slate-500 font-medium">Bahan Baku Halal</p>
                 </div>
-                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <p class="font-heading font-black text-2xl text-brand-600">3x Lipat</p>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/70">
+                  <p class="font-heading font-black text-2xl text-brand-500">3x Lipat</p>
                   <p class="text-xs text-slate-500 font-medium">Efisiensi Operasional</p>
                 </div>
-                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-                  <p class="font-heading font-black text-2xl text-amber-600">Terpusat</p>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/70">
+                  <p class="font-heading font-black text-2xl text-brand-700">Terpusat</p>
                   <p class="text-xs text-slate-500 font-medium">Sistem Produksi</p>
                 </div>
               </div>
@@ -378,7 +384,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+            <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-900 font-bold text-xs uppercase tracking-wider inline-block mb-3">
               Nilai Keunggulan
             </span>
             <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
@@ -392,9 +398,9 @@
           <!-- 3 Pillars Grid -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             
-            <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+            <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-300 transition-all flex flex-col justify-between">
               <div>
-                <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-500 flex items-center justify-center text-2xl mb-6">
                   <i class="fa-solid fa-droplet-slash"></i>
                 </div>
                 <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">100% Anti-Bocor & Rapi</h3>
@@ -402,15 +408,15 @@
                   Bentuk kerucut dengan bagian bawah tertutup rapat dan ditopang <em>paper cone sleeve</em> khusus, memastikan minyak atau saus tidak menetes mengotori pakaian saat disantap sambil jalan.
                 </p>
               </div>
-              <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-600 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-700 flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check text-brand-500"></i>
                 <span>Praktis Satu Tangan (On-The-Go)</span>
               </div>
             </div>
 
-            <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+            <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-300 transition-all flex flex-col justify-between">
               <div>
-                <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-2xl mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center text-2xl mb-6">
                   <i class="fa-solid fa-bolt-lightning"></i>
                 </div>
                 <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Penyajian Kilat (&lt;15 Detik)</h3>
@@ -418,15 +424,15 @@
                   Cone sudah dipanggang kaku dari dapur persiapan. Kru booth cukup mengambil cone, mengisi sayur, menyendok daging hangat dari pemanas, dan memberi saus. Antrean mengalir lancar!
                 </p>
               </div>
-              <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-600 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-700 flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check text-brand-500"></i>
                 <span>Tanpa Waktu Tunggu Lama</span>
               </div>
             </div>
 
-            <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl transition-all flex flex-col justify-between">
+            <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-brand-300 transition-all flex flex-col justify-between">
               <div>
-                <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-900 flex items-center justify-center text-2xl mb-6">
                   <i class="fa-solid fa-bullseye"></i>
                 </div>
                 <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Segmentasi Pasar Luas</h3>
@@ -434,8 +440,8 @@
                   Dengan strategi porsi dan harga yang disesuaikan untuk menjadi <em>snack</em> ringan yang mengenyangkan, ConeBab menyasar pangsa pasar luas dengan frekuensi pembelian (impulse buying) yang tinggi.
                 </p>
               </div>
-              <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-600 flex items-center gap-1.5">
-                <i class="fa-solid fa-circle-check"></i>
+              <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-brand-700 flex items-center gap-1.5">
+                <i class="fa-solid fa-circle-check text-brand-500"></i>
                 <span>Produk Massal Potensial</span>
               </div>
             </div>
@@ -451,29 +457,29 @@
                   <tr class="border-b border-slate-200 text-slate-400 font-bold uppercase text-xs">
                     <th class="py-3 px-4">Parameter Operasional</th>
                     <th class="py-3 px-4">Kebab Konvensional</th>
-                    <th class="py-3 px-4 text-brand-600">ConeBab (Kebab Cone)</th>
+                    <th class="py-3 px-4 text-brand-700">ConeBab (Kebab Cone)</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-slate-600">
                   <tr>
                     <td class="py-4 px-4 font-bold text-slate-900">Cara Konsumsi</td>
                     <td class="py-4 px-4">Membutuhkan dua tangan, kupas kertas bertahap, rawan tumpah</td>
-                    <td class="py-4 px-4 font-bold text-brand-600">Satu tangan layaknya es krim (Zero Leak Experience)</td>
+                    <td class="py-4 px-4 font-bold text-brand-700">Satu tangan layaknya es krim (Zero Leak Experience)</td>
                   </tr>
                   <tr>
                     <td class="py-4 px-4 font-bold text-slate-900">Waktu Penyiapan (Per Porsi)</td>
                     <td class="py-4 px-4">2 hingga 3 menit (memanggang & menggulung)</td>
-                    <td class="py-4 px-4 font-bold text-brand-600">&lt; 15 detik (Direct Assembly pada pre-baked cone)</td>
+                    <td class="py-4 px-4 font-bold text-brand-700">&lt; 15 detik (Direct Assembly pada pre-baked cone)</td>
                   </tr>
                   <tr>
                     <td class="py-4 px-4 font-bold text-slate-900">Kompleksitas Dapur Booth</td>
                     <td class="py-4 px-4">Tinggi (Perlu pemanggang daging vertikal & pemanggang kulit)</td>
-                    <td class="py-4 px-4 font-bold text-brand-600">Rendah (Peralatan pemanas sederhana, hemat ruang)</td>
+                    <td class="py-4 px-4 font-bold text-brand-700">Rendah (Peralatan pemanas sederhana, hemat ruang)</td>
                   </tr>
                   <tr>
                     <td class="py-4 px-4 font-bold text-slate-900">Standarisasi Bentuk</td>
                     <td class="py-4 px-4">Bergantung keterampilan karyawan (sering tidak konsisten)</td>
-                    <td class="py-4 px-4 font-bold text-brand-600">Sangat konsisten (struktur cone mengunci bentuk porsi)</td>
+                    <td class="py-4 px-4 font-bold text-brand-700">Sangat konsisten (struktur cone mengunci bentuk porsi)</td>
                   </tr>
                 </tbody>
               </table>
@@ -491,7 +497,7 @@
           
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-slate-100 pb-8">
             <div>
-              <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+              <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-900 font-bold text-xs uppercase tracking-wider inline-block mb-3">
                 Katalog Produk Utama
               </span>
               <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
@@ -500,36 +506,36 @@
               <p class="text-slate-600 text-base mt-2 max-w-2xl">Memperkenalkan inovasi utama ConeBab, dirancang dengan presisi untuk menyajikan rasa otentik dengan cara yang paling modern dan praktis bagi konsumen aktif.</p>
             </div>
             <div class="mt-4 md:mt-0 flex gap-2">
-              <span class="text-xs bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-xl text-slate-600 font-semibold flex items-center gap-2">
-                <i class="fa-solid fa-certificate text-brand-600"></i>
+              <span class="text-xs bg-brand-50 border border-brand-200 px-4 py-2.5 rounded-xl text-brand-900 font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-certificate text-brand-500"></i>
                 100% Bersertifikat Halal
               </span>
             </div>
           </div>
 
           <!-- Professional Product Showcase -->
-          <div class="bg-slate-50/50 rounded-[2.5rem] p-6 sm:p-10 border border-slate-200 shadow-sm overflow-hidden relative">
+          <div class="bg-slate-50/70 rounded-[2.5rem] p-6 sm:p-10 border border-slate-200 shadow-sm overflow-hidden relative">
             
             <!-- Decorative background elements -->
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-brand-100 rounded-full blur-3xl opacity-50"></div>
-            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-amber-100 rounded-full blur-3xl opacity-50"></div>
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-brand-200 rounded-full blur-3xl opacity-40"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-brand-100 rounded-full blur-3xl opacity-50"></div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
               
               <!-- Product Image/Graphic Column -->
               <div class="relative flex justify-center items-center">
                 <!-- Outer glow/frame -->
-                <div class="absolute inset-0 bg-gradient-to-tr from-brand-200 to-amber-100 rounded-[2rem] transform rotate-3 scale-105 opacity-70"></div>
+                <div class="absolute inset-0 bg-gradient-to-tr from-brand-300 to-brand-100 rounded-[2rem] transform rotate-3 scale-105 opacity-70"></div>
                 
                 <!-- Image Container -->
                 <div class="relative w-full aspect-[4/5] sm:aspect-square lg:aspect-[4/5] bg-slate-100 rounded-[2rem] shadow-xl border-4 border-white overflow-hidden group">
                   
                   <!-- Full-size Product Image using CONEBAB.png -->
-                  <img src="CONEBAB.png" alt="Produk Unggulan ConeBab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out">
+                  <img src="CONEBAB.png" onerror="this.onerror=null; this.src='https://placehold.co/600x750/4E7218/ffffff?text=CONEBAB+SIGNATURE';" alt="Produk Unggulan ConeBab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out">
 
                   <!-- Overlay badge -->
-                  <div class="absolute top-6 left-6 z-10 bg-slate-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1.5">
-                    <div class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></div>
+                  <div class="absolute top-6 left-6 z-10 bg-brand-900 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1.5">
+                    <div class="w-1.5 h-1.5 rounded-full bg-accent-400 animate-pulse"></div>
                     Signature Product
                   </div>
                 </div>
@@ -538,7 +544,7 @@
               <!-- Product Details Column -->
               <div class="flex flex-col justify-center">
                 <div class="inline-flex items-center gap-2 mb-4">
-                  <span class="px-2.5 py-1 rounded-md bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-widest">
+                  <span class="px-2.5 py-1 rounded-md bg-brand-100 text-brand-900 text-[10px] font-bold uppercase tracking-widest">
                     Best Seller
                   </span>
                   <span class="text-xs font-semibold text-slate-400">Camilan Gurih Siap Saji</span>
@@ -558,24 +564,24 @@
                 </div>
 
                 <!-- Feature List -->
-                <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm mb-8">
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm mb-8">
                   <h4 class="font-bold text-sm text-slate-900 mb-4 uppercase tracking-wider">Komposisi Utama & Karakteristik</h4>
                   <ul class="space-y-4">
                     <li class="flex items-start gap-3">
                       <div class="mt-0.5 w-5 h-5 rounded-full bg-brand-100 flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-check text-[10px] text-brand-600"></i>
+                        <i class="fa-solid fa-check text-[10px] text-brand-700"></i>
                       </div>
                       <p class="text-sm text-slate-700"><strong class="text-slate-900">Cone Tortilla Garing:</strong> Dipanggang khusus untuk mempertahankan tekstur renyah dan mencegah rembesan cairan.</p>
                     </li>
                     <li class="flex items-start gap-3">
                       <div class="mt-0.5 w-5 h-5 rounded-full bg-brand-100 flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-check text-[10px] text-brand-600"></i>
+                        <i class="fa-solid fa-check text-[10px] text-brand-700"></i>
                       </div>
                       <p class="text-sm text-slate-700"><strong class="text-slate-900">Isian Daging Berbumbu:</strong> Daging sapi berkualitas dengan marinasi rempah nusantara yang hangat dan gurih.</p>
                     </li>
                     <li class="flex items-start gap-3">
                       <div class="mt-0.5 w-5 h-5 rounded-full bg-brand-100 flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-check text-[10px] text-brand-600"></i>
+                        <i class="fa-solid fa-check text-[10px] text-brand-700"></i>
                       </div>
                       <p class="text-sm text-slate-700"><strong class="text-slate-900">Saus Signature:</strong> Kombinasi mayones creamy dan saus rahasia pelengkap untuk menyatukan seluruh elemen rasa.</p>
                     </li>
@@ -583,12 +589,12 @@
                 </div>
 
                 <!-- Business Contact CTA -->
-                <div class="flex items-center gap-4">
-                  <button onclick="navigateTo('kemitraan')" class="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-brand-600 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-md">
+                <div class="flex flex-wrap items-center gap-4">
+                  <button onclick="navigateTo('kemitraan')" class="px-6 py-3.5 rounded-xl bg-brand-700 hover:bg-brand-500 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-md shadow-brand-700/20">
                     <span>Informasi Kemitraan</span>
                     <i class="fa-solid fa-arrow-right"></i>
                   </button>
-                  <a href="#" onclick="showQuickToast('Menghubungi tim representatif bisnis kami...')" class="px-6 py-3.5 rounded-xl bg-white border border-slate-300 hover:border-slate-400 text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2">
+                  <a href="#" onclick="event.preventDefault(); showQuickToast('Menghubungi tim representatif bisnis kami...')" class="px-6 py-3.5 rounded-xl bg-white border border-slate-300 hover:border-brand-500 hover:text-brand-700 text-slate-700 font-bold text-sm transition-all flex items-center justify-center gap-2">
                     <i class="fa-regular fa-envelope"></i>
                     <span>Tanya Produk</span>
                   </a>
@@ -603,17 +609,17 @@
     </section>
 
     <section id="page-tim" class="page-section">
-      <div class="py-20 bg-slate-900 text-white min-h-[70vh]">
+      <div class="py-20 bg-brand-950 text-white min-h-[70vh]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="text-center max-w-2xl mx-auto mb-16">
-            <span class="px-3.5 py-1.5 rounded-full bg-brand-500/20 text-brand-400 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+            <span class="px-3.5 py-1.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30 font-bold text-xs uppercase tracking-wider inline-block mb-3">
               Jajaran Manajemen
             </span>
             <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
               Struktur Tim
             </h2>
-            <p class="text-slate-400 text-sm sm:text-base mt-3">
+            <p class="text-slate-300 text-sm sm:text-base mt-3">
               Dipimpin oleh pilar eksekutif yang berdedikasi membangun ekosistem bisnis food and beverage modern, terukur, dan siap berekspansi ke seluruh kota.
             </p>
           </div>
@@ -622,64 +628,60 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <!-- CEO -->
-            <div class="bg-slate-800/80 rounded-3xl p-6 border border-slate-700 hover:border-brand-500/50 transition-all text-center flex flex-col items-center group">
-              <div class="w-24 h-24 rounded-2xl overflow-hidden shadow-lg mb-4 relative border-2 border-slate-700 group-hover:border-brand-500 transition-colors">
-                <!-- Ganti 'foto-ceo.jpg' dengan nama file foto CEO Anda -->
-                <img src="Farid.jpg" alt="Foto CEO ConeBab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="bg-slate-900/90 rounded-3xl p-6 border border-brand-900 hover:border-brand-500 transition-all text-center flex flex-col items-center group">
+              <div class="w-24 h-24 rounded-2xl overflow-hidden shadow-lg mb-4 relative border-2 border-brand-900 group-hover:border-brand-500 transition-colors">
+                <img src="Farid.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x200/4E7218/ffffff?text=CEO';" alt="Foto CEO ConeBab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
               </div>
-              <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <span class="px-3 py-1 rounded-full bg-brand-500/20 text-brand-300 text-xs font-bold uppercase tracking-wider mb-2">
                 CEO
               </span>
               <h4 class="font-heading font-extrabold text-lg text-white">M Farid Roanza, S.Bns.</h4>
-              <p class="text-xs text-brand-500/80 font-semibold mb-2">Chief Executive Officer</p>
+              <p class="text-xs text-brand-400 font-semibold mb-2">Chief Executive Officer</p>
               <p class="text-xs text-slate-400 leading-relaxed">
                 Menentukan arah visi bisnis jangka panjang, ekspansi gerai satelit, dan kepemimpinan strategis perusahaan.
               </p>
             </div>
 
             <!-- COO -->
-            <div class="bg-slate-800/80 rounded-3xl p-6 border border-slate-700 hover:border-brand-500/50 transition-all text-center flex flex-col items-center group">
-              <div class="w-24 h-24 rounded-2xl overflow-hidden shadow-lg mb-4 relative border-2 border-slate-700 group-hover:border-amber-500 transition-colors">
-                <!-- Ganti 'foto-coo.jpg' dengan nama file foto COO Anda -->
-                <img src="YUDIKA.jpg" alt="Foto COO ConeBab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="bg-slate-900/90 rounded-3xl p-6 border border-brand-900 hover:border-brand-500 transition-all text-center flex flex-col items-center group">
+              <div class="w-24 h-24 rounded-2xl overflow-hidden shadow-lg mb-4 relative border-2 border-brand-900 group-hover:border-accent-400 transition-colors">
+                <img src="YUDIKA.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x200/74A12E/ffffff?text=COO';" alt="Foto COO ConeBab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
               </div>
-              <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <span class="px-3 py-1 rounded-full bg-accent-500/20 text-accent-300 text-xs font-bold uppercase tracking-wider mb-2">
                 COO
               </span>
               <h4 class="font-heading font-extrabold text-lg text-white">Y U D I K A, S.Bns.</h4>
-              <p class="text-xs text-amber-500/80 font-semibold mb-2">Chief Operating Officer</p>
+              <p class="text-xs text-accent-400 font-semibold mb-2">Chief Operating Officer</p>
               <p class="text-xs text-slate-400 leading-relaxed">
                 Mengontrol produksi dapur sentral, standarisasi mutu kulit tortilla kerucut, dan rantai pasokan logistik bahan baku.
               </p>
             </div>
 
             <!-- CMO -->
-            <div class="bg-slate-800/80 rounded-3xl p-6 border border-slate-700 hover:border-brand-500/50 transition-all text-center flex flex-col items-center group">
-              <div class="w-24 h-24 rounded-2xl overflow-hidden shadow-lg mb-4 relative border-2 border-slate-700 group-hover:border-rose-500 transition-colors">
-                <!-- Ganti 'foto-cmo.jpg' dengan nama file foto CMO Anda -->
-                <img src="Pian.jpg" alt="Foto CMO ConeBab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="bg-slate-900/90 rounded-3xl p-6 border border-brand-900 hover:border-brand-500 transition-all text-center flex flex-col items-center group">
+              <div class="w-24 h-24 rounded-2xl overflow-hidden shadow-lg mb-4 relative border-2 border-brand-900 group-hover:border-brand-400 transition-colors">
+                <img src="Pian.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x200/37520D/ffffff?text=CMO';" alt="Foto CMO ConeBab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
               </div>
-              <span class="px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <span class="px-3 py-1 rounded-full bg-brand-400/20 text-brand-300 text-xs font-bold uppercase tracking-wider mb-2">
                 CMO
               </span>
               <h4 class="font-heading font-extrabold text-lg text-white">Alfian Arya Fatahillah, S.Bns.</h4>
-              <p class="text-xs text-rose-500/80 font-semibold mb-2">Chief Marketing Officer</p>
+              <p class="text-xs text-brand-300 font-semibold mb-2">Chief Marketing Officer</p>
               <p class="text-xs text-slate-400 leading-relaxed">
                 Merancang kampanye korporat, aktivasi brand awareness, dan strategi pemasaran business-to-business (B2B).
               </p>
             </div>
 
             <!-- CFO -->
-            <div class="bg-slate-800/80 rounded-3xl p-6 border border-slate-700 hover:border-brand-500/50 transition-all text-center flex flex-col items-center group">
-              <div class="w-24 h-24 rounded-2xl overflow-hidden shadow-lg mb-4 relative border-2 border-slate-700 group-hover:border-emerald-500 transition-colors">
-                <!-- Ganti 'foto-cfo.jpg' dengan nama file foto CFO Anda -->
-                <img src="Heri.jpg" alt="Foto CFO ConeBab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="bg-slate-900/90 rounded-3xl p-6 border border-brand-900 hover:border-brand-500 transition-all text-center flex flex-col items-center group">
+              <div class="w-24 h-24 rounded-2xl overflow-hidden shadow-lg mb-4 relative border-2 border-brand-900 group-hover:border-emerald-400 transition-colors">
+                <img src="Heri.jpg" onerror="this.onerror=null; this.src='https://placehold.co/200x200/5e8722/ffffff?text=CFO';" alt="Foto CFO ConeBab" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
               </div>
-              <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2">
+              <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
                 CFO
               </span>
               <h4 class="font-heading font-extrabold text-lg text-white">Harry Saputra Ardiansyah, S.Bns.</h4>
-              <p class="text-xs text-emerald-500/80 font-semibold mb-2">Chief Financial Officer</p>
+              <p class="text-xs text-emerald-400 font-semibold mb-2">Chief Financial Officer</p>
               <p class="text-xs text-slate-400 leading-relaxed">
                 Menjaga efisiensi modal, analisis profitabilitas operasional, serta manajemen proyeksi keuangan kemitraan.
               </p>
@@ -696,7 +698,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+            <span class="px-3.5 py-1.5 rounded-full bg-brand-100 text-brand-900 font-bold text-xs uppercase tracking-wider inline-block mb-3">
               Peluang Bisnis
             </span>
             <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
@@ -711,7 +713,7 @@
             
             <!-- Left Side: Simulator -->
             <div class="lg:col-span-6 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
-              <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-800 font-bold text-xs uppercase tracking-wider inline-block mb-3">
+              <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-900 font-bold text-xs uppercase tracking-wider inline-block mb-3">
                 Proyeksi Bisnis
               </span>
               <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-slate-900 mb-2">
@@ -726,9 +728,9 @@
                 <div>
                   <div class="flex justify-between items-center mb-2">
                     <label for="portionSlider" class="text-xs font-bold uppercase tracking-wider text-slate-700">Estimasi Volume (Unit/Hari)</label>
-                    <span id="portionDisplay" class="font-heading font-extrabold text-xl text-brand-600">150 Unit</span>
+                    <span id="portionDisplay" class="font-heading font-extrabold text-xl text-brand-700">150 Unit</span>
                   </div>
-                  <input type="range" id="portionSlider" min="50" max="400" step="25" value="150" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-600">
+                  <input type="range" id="portionSlider" min="50" max="400" step="25" value="150" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-500">
                   <div class="flex justify-between text-[11px] text-slate-400 mt-2 font-medium">
                     <span>50 Unit</span>
                     <span>200 Unit</span>
@@ -743,8 +745,8 @@
                     <span id="monthlyRevenue" class="font-heading font-black text-xl sm:text-2xl text-slate-900">Rp 22.500.000</span>
                   </div>
                   <div class="bg-brand-50 p-5 rounded-2xl border border-brand-200">
-                    <span class="text-[11px] font-semibold text-brand-800 uppercase block mb-1">Estimasi Gross Profit Margin</span>
-                    <span id="grossProfit" class="font-heading font-black text-xl sm:text-2xl text-brand-600">Rp 12.600.000</span>
+                    <span class="text-[11px] font-semibold text-brand-900 uppercase block mb-1">Estimasi Gross Profit Margin</span>
+                    <span id="grossProfit" class="font-heading font-black text-xl sm:text-2xl text-brand-700">Rp 12.600.000</span>
                   </div>
                 </div>
 
@@ -786,7 +788,7 @@
                     <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Pesan atau Latar Belakang (Opsional)</label>
                     <textarea id="inputPesan" name="pesan" rows="3" placeholder="Informasi tambahan terkait profil Anda atau pertanyaan spesifik..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm"></textarea>
                   </div>
-                  <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-500 disabled:bg-slate-400 text-white font-heading font-bold text-sm shadow-lg shadow-brand-500/25 transition-all flex items-center justify-center gap-2">
+                  <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-brand-700 hover:bg-brand-500 disabled:bg-slate-400 text-white font-heading font-bold text-sm shadow-lg shadow-brand-700/25 transition-all flex items-center justify-center gap-2">
                     <span id="btnText">Kirim Permintaan Proposal</span>
                     <i id="btnIcon" class="fa-solid fa-paper-plane"></i>
                   </button>
@@ -802,52 +804,52 @@
 
   </main>
 
-  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+  <footer class="bg-brand-950 text-slate-400 py-12 border-t border-brand-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-800">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-brand-900/70">
         
         <div class="md:col-span-5">
           <div class="mb-5">
-            <img src="LOGO CONEBAB.png" alt="Logo ConeBab" class="h-10 sm:h-12 w-auto object-contain">
+            <img src="LOGO CONEBAB.png" onerror="this.onerror=null; this.src='https://placehold.co/150x45/37520D/ffffff?text=CONEBAB';" alt="Logo ConeBab" class="h-10 sm:h-12 w-auto object-contain">
           </div>
-          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
             Pelopor kebab cone praktis di Indonesia. Menghadirkan model bisnis kuliner modern yang efisien, inovatif, dan berfokus pada kualitas terstandarisasi.
           </p>
         </div>
 
         <div class="md:col-span-3 text-xs sm:text-sm">
           <p class="font-bold text-white uppercase tracking-wider mb-3">Halaman Korporat</p>
-          <ul class="space-y-2">
-            <li><button onclick="navigateTo('beranda')" class="hover:text-white transition-colors">Beranda</button></li>
-            <li><button onclick="navigateTo('tentang')" class="hover:text-white transition-colors">Profil Perusahaan</button></li>
-            <li><button onclick="navigateTo('keunggulan')" class="hover:text-white transition-colors">Keunggulan Bisnis</button></li>
-            <li><button onclick="navigateTo('produk')" class="hover:text-white transition-colors">Produk Kami</button></li>
-            <li><button onclick="navigateTo('tim')" class="hover:text-white transition-colors">Jajaran Manajemen</button></li>
-            <li><button onclick="navigateTo('kemitraan')" class="hover:text-white transition-colors">Peluang Kemitraan B2B</button></li>
+          <ul class="space-y-2 text-slate-300">
+            <li><button onclick="navigateTo('beranda')" class="hover:text-brand-400 transition-colors">Beranda</button></li>
+            <li><button onclick="navigateTo('tentang')" class="hover:text-brand-400 transition-colors">Profil Perusahaan</button></li>
+            <li><button onclick="navigateTo('keunggulan')" class="hover:text-brand-400 transition-colors">Keunggulan Bisnis</button></li>
+            <li><button onclick="navigateTo('produk')" class="hover:text-brand-400 transition-colors">Produk Kami</button></li>
+            <li><button onclick="navigateTo('tim')" class="hover:text-brand-400 transition-colors">Jajaran Manajemen</button></li>
+            <li><button onclick="navigateTo('kemitraan')" class="hover:text-brand-400 transition-colors">Peluang Kemitraan B2B</button></li>
           </ul>
         </div>
 
         <div class="md:col-span-4 text-xs sm:text-sm">
           <p class="font-bold text-white uppercase tracking-wider mb-3">Kontak Representatif</p>
-          <p class="text-slate-400 mb-2"><i class="fa-regular fa-envelope mr-2 text-brand-500"></i> partnershipconebab@gmail.com</p>
-          <p class="text-slate-400 mb-4"><i class="fa-brands fa-whatsapp mr-2 text-emerald-500"></i> +62 895-3653-02583 (Business Only)</p>
+          <p class="text-slate-300 mb-2"><i class="fa-regular fa-envelope mr-2 text-brand-400"></i> partnershipconebab@gmail.com</p>
+          <p class="text-slate-300 mb-4"><i class="fa-brands fa-whatsapp mr-2 text-brand-400"></i> +62 895-3653-02583 (Business Only)</p>
           <div class="flex gap-2">
-            <span class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-linkedin-in"></i></span>
-            <span class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-instagram"></i></span>
+            <span class="w-8 h-8 rounded-lg bg-brand-900 hover:bg-brand-500 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-linkedin-in"></i></span>
+            <span class="w-8 h-8 rounded-lg bg-brand-900 hover:bg-brand-500 flex items-center justify-center text-white cursor-pointer transition-colors"><i class="fa-brands fa-instagram"></i></span>
           </div>
         </div>
 
       </div>
 
-      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
-        <p>&copy; 2026 ConeBab Indonesia Corporate Profile. All Rights Reserved.</p>       
+      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400">
+        <p>&copy; 2026 ConeBab Indonesia Corporate Profile. All Rights Reserved.</p>        
       </div>
     </div>
   </footer>
 
   <!-- Floating Toast Notification -->
-  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none border border-slate-700">
-    <i class="fa-solid fa-circle-check text-brand-500 text-lg"></i>
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 bg-brand-900 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none border border-brand-500/40">
+    <i class="fa-solid fa-circle-check text-accent-400 text-lg"></i>
     <span id="toastMessage" class="text-xs sm:text-sm font-medium">Notifikasi</span>
   </div>
 
@@ -932,7 +934,7 @@
       }, 2800);
     }
 
-    // Profit & Revenue Calculator Logic (Adjusted for generic B2B presentation)
+    // Profit & Revenue Calculator Logic
     const portionSlider = document.getElementById('portionSlider');
     const portionDisplay = document.getElementById('portionDisplay');
     const monthlyRevenue = document.getElementById('monthlyRevenue');
